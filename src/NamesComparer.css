@@ -1,0 +1,21 @@
+.NamesComparer {
+    width: 70%;
+    height: 200px;
+    border: 5px solid purple;
+    border-radius: 4px;
+    margin: auto;
+    margin-top: 30px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.NameButton {
+    cursor: pointer;
+    font-size: 22px;
+    height: 50px;
+    font-weight: bold;
+    border: none;
+    border-radius: 10px;
+    background-color: white;
+}
