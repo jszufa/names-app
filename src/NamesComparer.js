@@ -15,30 +15,31 @@ function NamesComparer(props) {
     )
 
     //wagi dobrze się aktualizują
-    console.log(weightsArray);    
-    
-  //wariant pojedynku każdy z każdym
+    /* console.log(weightsArray); */
 
-    //na razie konkretrna liczba - "36" tylko roboczo
-    if (/* warunek odpowiedni */) {
-    setCurrentNames((lastPair) =>
-    props.compareArray[props.compareArray.indexOf(lastPair) + 1]);
-    }
-    else {
-      setCurrentNames(['Koniec', 'Pojedynku'])
-      console.log(weightsArray);
-    }
+    //wariant pojedynku każdy z każdym
 
+  
+    setCurrentNames((lastPair) => {
+      if (props.compareArray.indexOf(lastPair) < props.compareArray.length - 1) {
+        return props.compareArray[props.compareArray.indexOf(lastPair) + 1];
+      }
+      else {
+        console.log(weightsArray);
+        return ['Koniec', 'Pojedynku'];
+      }
+    })
   }
+
 
   /*  const random = Math.floor(Math.random() * maleNamesArray.length); */
 
-  
 
-    //Wygrany = waga+1 + aktualna(albo raczej stała Waga pokonanego
-    //jeśli zakładam przechodniość przekonań, to inne pojedynki przegranego, powinny wpływać na wynik wygranego
-    // Przegrany = nic
-    //wyświetl nowe imiona
+
+  //Wygrany = waga+1 + aktualna(albo raczej stała Waga pokonanego
+  //jeśli zakładam przechodniość przekonań, to inne pojedynki przegranego, powinny wpływać na wynik wygranego
+  // Przegrany = nic
+  //wyświetl nowe imiona
 
 
 
