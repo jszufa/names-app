@@ -10,16 +10,18 @@ function NamesComparerVersion2(props) {
   const updateCurrentNames = (winnerName) => {
     console.log(`The winner name is: ${winnerName}`)
 
-    let looserName = currentNames.filter((name) => name !== winnerName);
+    let looserName = String(currentNames.filter((name) => name !== winnerName));
     console.log(`The looser name is: ${looserName}`)
-    
+
     //teraz żeby aktualizować wagi, biorę pod uwagę każdy element tablicy. Może jest szybszy sposób? Np. z filtrowaniem?
     setWeightsArray(
       weightsArray.map(name => (name[0] === winnerName) ? [name[0], ++name[1]] : name)
     )
-    
+
+    let newFilteredCompareArray = filteredCompareArray.filter((element) => !element.includes(looserName))
+
     setFilteredCompareArray(
-      filteredCompareArray.filter((element) => element.includes(looserName))
+     () => newFilteredCompareArray
     )
 
     console.log(filteredCompareArray);
@@ -27,9 +29,9 @@ function NamesComparerVersion2(props) {
     //wariant pojedynku każdy z każdym
 
 
-    setCurrentNames((lastPair) => {
-      if (props.compareArray.indexOf(lastPair) < props.compareArray.length - 1) {
-        return props.compareArray[props.compareArray.indexOf(lastPair) + 1];
+    setCurrentNames(() => {
+      if (filteredCompareArray.length > 0) {
+        return filteredCompareArray[0];
       }
       else {
         console.log(weightsArray);
