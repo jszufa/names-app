@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import './NamesComparer.css';
 
 function NamesComparerVersion2(props) {
@@ -7,7 +7,9 @@ function NamesComparerVersion2(props) {
   const [currentNames, setCurrentNames] = useState(props.compareArray[0]);
   const [filteredCompareArray, setFilteredCompareArray] = useState(props.compareArray)
 
-  const updateCurrentNames = (winnerName) => {
+  useEffect(() => { updateCurrentNames(); }, [filteredCompareArray]);
+
+  const updateCompareArray = (winnerName) => {
     console.log(`The winner name is: ${winnerName}`)
 
     let looserName = String(currentNames.filter((name) => name !== winnerName));
@@ -19,15 +21,15 @@ function NamesComparerVersion2(props) {
     )
 
     let newFilteredCompareArray = filteredCompareArray.filter((element) => !element.includes(looserName))
+    console.log(newFilteredCompareArray);
 
-    setFilteredCompareArray(
-     () => newFilteredCompareArray
-    )
+    setFilteredCompareArray(newFilteredCompareArray)
 
     console.log(filteredCompareArray);
+  }
 
-    //wariant pojedynku każdy z każdym
-
+  const updateCurrentNames = () => {
+    // teraz potrzebuję mieć tutaj zaktualizowany stan filteredCompareArray, żeby wyświetlić właściwą parę. W innym wypadku pobieram tablicę z poprzedniego stanu.
 
     setCurrentNames(() => {
       if (filteredCompareArray.length > 0) {
@@ -35,9 +37,10 @@ function NamesComparerVersion2(props) {
       }
       else {
         console.log(weightsArray);
-        return ['Koniec', 'Pojedynku'];
+        return ['Koniec', 'Pojedynków'];
       }
     })
+
   }
 
 
@@ -59,8 +62,8 @@ function NamesComparerVersion2(props) {
   return (
     <div className="NamesComparer">
       {/* {initialWeightsArray} */}
-      <button className='NameButton' onClick={() => updateCurrentNames(currentNames[0])}>{currentNames[0]}</button>
-      <button className='NameButton' onClick={() => updateCurrentNames(currentNames[1])}>{currentNames[1]}</button>
+      <button className='NameButton' onClick={() => updateCompareArray(currentNames[0])}>{currentNames[0]}</button>
+      <button className='NameButton' onClick={() => updateCompareArray(currentNames[1])}>{currentNames[1]}</button>
     </div>
   );
 }
