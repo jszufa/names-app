@@ -30,25 +30,6 @@ function NamesComparer(props) {
   }
 
 
-  //Wygrany = waga+1 + aktualna(albo raczej stała Waga pokonanego
-  //jeśli zakładam przechodniość przekonań, to inne pojedynki przegranego, powinny wpływać na wynik wygranego
-  // Przegrany = nic
-  //wyświetl nowe imiona
-
-
-  //Version2
-  //Spróbujmy tak: jeśli x pokona y, wtedy x pokonuje wszystkich, których pokonał już y(czyli powinien dostawać tyle punktów ile aktualnie ma y), co więcej y-greka nie warto już w ogóle brać pod uwagę.
-  //Innymi słowy liczy się hierarchia a nie liczba zwycięstw
-  //czyli jeśli mam 9 imion, to mogę ocenić, że jest maksymalnie do zdobycia 8 punktów
-  //gdy coś wygra pojedynek, to dostaje 1 punkt i jest dalej brane pod uwagę, jeśli przegra, to odpada z rankingu z liczbą punktów, którą miało do tej pory
-  
-  //*w wariancie bardziej pod użytkownika, fajnie byłoby stale brać pod uwagę grupę 3 imion z najwyższym wynikiem
-
-  //Szkic algorytmu:
-  // Mam tablice z wszystkimi kombinacjami
-  // gdy ktoś kliknie dane imię, to 1) wygrany dostaje +1 oraz 2) tablica compareArray zostaje wyfiltrowana (znikają z niej wszystkie pary z imieniem przegranego)
-
-
 
   return (
     <div className="NamesComparer">
@@ -60,3 +41,11 @@ function NamesComparer(props) {
 }
 
 export default NamesComparer;
+
+
+
+// dodać licznik wykonanych prób
+// stworzyć checklistę imion dla użytkownika
+// niech pokazuje użytkownikowi ile ma imion możliwych i ile iteracji wymaga porównanie każdego z każdym (albo czasu)
+// trzymać porządek, czyli przerzucić sobie resztę spraw do innych komponentów
+// można dodac potem timer: czas na odpowiedź

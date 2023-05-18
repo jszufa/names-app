@@ -1,7 +1,7 @@
 import './App.css';
 
 import NamesComparer from './NamesComparer';
-import NamesComparerVersion2 from './NamesComparerVersion2';
+import NamesComparerMS from './NamesComparerMS';
 
 let maleNamesArray = ["Ignacy", "Bernard", "Hugon", "Antoni", "Tadeusz", "Jan", "Stanisław", "Łukasz", "Marcin"];
 let initialWeightsArray = maleNamesArray.map(name => [name, 0]);
@@ -28,7 +28,7 @@ function App() {
   return (
     <div className="App">
       <NamesComparer maleNamesArray={maleNamesArray} initialWeightsArray={initialWeightsArray} compareArray={newCompareArray}/>
-      <NamesComparerVersion2 maleNamesArray={maleNamesArray} initialWeightsArray={initialWeightsArray} compareArray={newCompareArray}/>
+      <NamesComparerMS maleNamesArray={maleNamesArray} initialWeightsArray={initialWeightsArray} compareArray={newCompareArray}/>
     </div>
   );
 }
