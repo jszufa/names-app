@@ -11,7 +11,7 @@ function NamesComparerMS(props) {
 
   const sortArray = (winnerName) => {
     let sortedArr = [];
-    if (currentNames[0] === winnerName){
+    if (currentNames[0] === winnerName) {
       sortedArr.push(namesArray.shift())
     }
     /* console.log(sortedArr) */
@@ -23,68 +23,86 @@ function NamesComparerMS(props) {
   }
 
 
-// low - index pierwszego wyrazu tablicy
-// mid - index środkowego wyrazu tablicy
-// high - index ostatniego wyrazu tablicy
-let numbers = [5, 7, 1, 4, 14, 2, 28, 3];
+  // low - index pierwszego wyrazu tablicy
+  // mid - index środkowego wyrazu tablicy
+  // high - index ostatniego wyrazu tablicy
+  let numbers = [5, 7, 1, 4, 14, 2, 28, 3];
 
-const [size, setSize] = useState(1);
-const [temp, setTemp] = useState([]);
+  const [size, setSize] = useState(1);
+  const [temp, setTemp] = useState([]);
 
-const [low, setLow] = useState(0);
-const [mid, setMid] = useState(0);
-const [high, setHigh] = useState(1);
+  const [low, setLow] = useState(0);
+  const [mid, setMid] = useState(0);
+  const [high, setHigh] = useState(1);
 
-const stepByStepMergeSort = () => {
-  
-}
+  const stepByStepMergeSort = () => {
+    if (size = 1) {
 
+    }
 
+    else if (size = 2) {
 
+    }
 
-function bottomUpMergeSort(inputArray) {
-  var length = inputArray.length;
-  var size = 1;
-  var temp = []; //allocate space just once
+    else if (size = 4) {
 
-  for (size; size < length; size = size * 2) {
-    var low = 0;
-    //console.log(`The size value is ${size}`)
+    }
 
-    for (low; low < length - size; low += size * 2) {
-      var mid = low + size - 1,
-        high = Math.min(low + (size * 2 - 1), length - 1);
-      /* console.log(`The low value is ${low}`);
-      console.log(`The mid value is ${mid}`);
-      console.log(`The high value is ${high}`) */
+    else if (size = 8) {
 
-      merge(inputArray, temp, low, mid, high);
-      
-      //warunek na ostatni przebieg pętli - reset tablicy roboczej
-      if (temp.length === length) {
-        //przekazanie temp do inputArray
-        var sortedArray = JSON.parse(JSON.stringify(temp));
-        inputArray = sortedArray;
-        temp = [];
-      }
+    }
+
+    else if (size = 16) {
+
     }
   }
-  
-  return inputArray;
-}
 
 
-function merge(inputArray, temp, low, mid, high) {
 
-  let left = inputArray.slice(low, mid+1);
-  let right = inputArray.slice(mid+1, high+1);
 
-  let sortedArr = [];
-  while (left.length && right.length) {
+  function bottomUpMergeSort(inputArray) {
+    var length = inputArray.length;
+    var size = 1;
+    var temp = []; //allocate space just once
+
+    for (size; size < length; size = size * 2) {
+      var low = 0;
+      //console.log(`The size value is ${size}`)
+
+      for (low; low < length - size; low += size * 2) {
+        var mid = low + size - 1,
+          high = Math.min(low + (size * 2 - 1), length - 1);
+        /* console.log(`The low value is ${low}`);
+        console.log(`The mid value is ${mid}`);
+        console.log(`The high value is ${high}`) */
+
+        merge(inputArray, temp, low, mid, high);
+
+        //warunek na ostatni przebieg pętli - reset tablicy roboczej
+        if (temp.length === length) {
+          //przekazanie temp do inputArray
+          var sortedArray = JSON.parse(JSON.stringify(temp));
+          inputArray = sortedArray;
+          temp = [];
+        }
+      }
+    }
+
+    return inputArray;
+  }
+
+
+  function merge(inputArray, temp, low, mid, high) {
+
+    let left = inputArray.slice(low, mid + 1);
+    let right = inputArray.slice(mid + 1, high + 1);
+
+    let sortedArr = [];
+    while (left.length && right.length) {
       // Inserts the smallest/biggest item into sortedArr
       // Tutaj powinno się wyświetlać zapytanie dla użytkownika
-    // przy każdym kliknięciu powinniśmy się przesuwać jeden krok dalej w algorytmie
-    // czy zmienne występujące w tej funkcji muszę w takim razie wrzucić w stany lub local storage?
+      // przy każdym kliknięciu powinniśmy się przesuwać jeden krok dalej w algorytmie
+      // czy zmienne występujące w tej funkcji muszę w takim razie wrzucić w stany lub local storage?
       if (left[0] > right[0]) {
         sortedArr.push(left.shift())
       } else {
@@ -92,12 +110,12 @@ function merge(inputArray, temp, low, mid, high) {
       }
     }
 
-  temp.push(...sortedArr, ...left, ...right);
+    temp.push(...sortedArr, ...left, ...right);
 
-  //console.log(`oto temp ${temp}`);
-  //console.log(temp);
-  //console.log(`Length inputArray to ${inputArray.length}, a length temp to ${temp.length}`);
-}
+    //console.log(`oto temp ${temp}`);
+    //console.log(temp);
+    //console.log(`Length inputArray to ${inputArray.length}, a length temp to ${temp.length}`);
+  }
 
 
 
