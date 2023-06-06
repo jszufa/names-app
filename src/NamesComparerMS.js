@@ -23,56 +23,87 @@ function NamesComparerMS(props) {
   }
 
 
+// low - index pierwszego wyrazu tablicy
+// mid - index środkowego wyrazu tablicy
+// high - index ostatniego wyrazu tablicy
+let numbers = [5, 7, 1, 4, 14, 2, 28, 3];
 
-  //Ok potrzebuję napisać sobie algorytm w wersji ogólnej. Tzn zakładając że nie muszę zmieniać danych itp.
+const [size, setSize] = useState(1);
+const [temp, setTemp] = useState([]);
+
+const [low, setLow] = useState(0);
+const [mid, setMid] = useState(0);
+const [high, setHigh] = useState(1);
+
+const stepByStepMergeSort = () => {
+  
+}
 
 
 
 
+function bottomUpMergeSort(inputArray) {
+  var length = inputArray.length;
+  var size = 1;
+  var temp = []; //allocate space just once
 
-  //wersja algorytmu statyczna top down, porównująca stringi
-  //ja potrzebuję wersji bottom up
+  for (size; size < length; size = size * 2) {
+    var low = 0;
+    //console.log(`The size value is ${size}`)
 
-  function merge(left, right) {
-    let sortedArr = [] // the sorted items will go here
-    while (left.length && right.length) {
-      // Insert the smallest item into sortedArr
+    for (low; low < length - size; low += size * 2) {
+      var mid = low + size - 1,
+        high = Math.min(low + (size * 2 - 1), length - 1);
+      /* console.log(`The low value is ${low}`);
+      console.log(`The mid value is ${mid}`);
+      console.log(`The high value is ${high}`) */
+
+      merge(inputArray, temp, low, mid, high);
+      
+      //warunek na ostatni przebieg pętli - reset tablicy roboczej
+      if (temp.length === length) {
+        //przekazanie temp do inputArray
+        var sortedArray = JSON.parse(JSON.stringify(temp));
+        inputArray = sortedArray;
+        temp = [];
+      }
+    }
+  }
+  
+  return inputArray;
+}
+
+
+function merge(inputArray, temp, low, mid, high) {
+
+  let left = inputArray.slice(low, mid+1);
+  let right = inputArray.slice(mid+1, high+1);
+
+  let sortedArr = [];
+  while (left.length && right.length) {
+      // Inserts the smallest/biggest item into sortedArr
       // Tutaj powinno się wyświetlać zapytanie dla użytkownika
+    // przy każdym kliknięciu powinniśmy się przesuwać jeden krok dalej w algorytmie
+    // czy zmienne występujące w tej funkcji muszę w takim razie wrzucić w stany lub local storage?
       if (left[0] > right[0]) {
         sortedArr.push(left.shift())
       } else {
         sortedArr.push(right.shift())
       }
     }
-    // Use spread operators to create a new array, combining the three arrays
-    return [...sortedArr, ...left, ...right]
-  }
 
-  function mergeSort(arr) {
-    // Base case
-    if (arr.length <= 1) return arr
-    let mid = Math.floor(arr.length / 2)
-    // Recursive calls
-    let left = mergeSort(arr.slice(0, mid))
-    let right = mergeSort(arr.slice(mid))
-    return merge(left, right)
-  }
+  temp.push(...sortedArr, ...left, ...right);
 
-  useEffect(() => { mergeSort(namesArray); }, []);
-
-  //1. Mam gotową listę imion do posortowania -> tutaj "maleNamesArray"
-  //2. Kiedy kliknę pierwsze imię wykonuje się operacja porównania dla pierwszej pary.
-  //3. Oznacza to w praktyce, że tworzę nową listę, do której wrzucam wynik z pierwszej operacji
+  //console.log(`oto temp ${temp}`);
+  //console.log(temp);
+  //console.log(`Length inputArray to ${inputArray.length}, a length temp to ${temp.length}`);
+}
 
 
 
 
-  // Użyjmy algorytmu Merge SORT
-  // Algorytm potrzebuje:
-  // 1. Początkowej tablicy z imionami - kolejność dowolna
-  // 2. Potrzebuje funkcji pomocniczej, która akceptuje tylko posortowane tablice i łączy je w jedną większa tablicę. U mnie tę funkcję musi zawsze wywołać interakcja użytkownika. Jeśli użytkownik kliknie imię, to dodaje je się do kolejnej listy.
-  // 3. Potrzebuję funckji Scalająco sortującej. W każdym momencie kiedy pojawia się element scalania potrzebuję interakcji użytkownika, bo to on podejmuje decyzję, czy a > b?
-  // Nie potrzebuję wag, potrzebuję za to przechowywać w pamięci pomniejsze listy
+
+
 
 
   return (
