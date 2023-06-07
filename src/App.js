@@ -3,7 +3,8 @@ import './App.css';
 import NamesComparer from './NamesComparer';
 import NamesComparerMS from './NamesComparerMS';
 
-let maleNamesArray = ["Ignacy", "Bernard", "Hugon", "Antoni", "Tadeusz", "Jan", "Stanisław", "Łukasz", "Marcin"];
+/* let maleNamesArray = ["Ignacy", "Bernard", "Hugon", "Antoni", "Tadeusz", "Jan", "Stanisław", "Łukasz", "Marcin"]; */
+let maleNamesArray = ["Ignacy", "Bernard"];
 let initialWeightsArray = maleNamesArray.map(name => [name, 0]);
 
 
