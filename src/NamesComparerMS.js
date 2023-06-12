@@ -8,9 +8,9 @@ function NamesComparerMS(props) {
 
   /* useEffect(() => { updateCurrentNames(); }, [namesArray]); */
 
-/*   const updateCurrentNames = () => {
-    setCurrentNames([namesArray[0], namesArray[1]])
-  } */
+  /*   const updateCurrentNames = () => {
+      setCurrentNames([namesArray[0], namesArray[1]])
+    } */
 
 
   // low - index pierwszego wyrazu tablicy
@@ -29,11 +29,14 @@ function NamesComparerMS(props) {
   const [sortedArr, setSortedArr] = useState([]);
   const [finnishingFlag, setFinnishingFlag] = useState(false);
 
- 
+
 
   useEffect(() => { finishingMove() }, [finnishingFlag]);
 
   const finishingMove = () => {
+    //console.log('uruchomiono finishingMove');
+    //console.log(sortedArr);
+
     setLeftFlag(0);
     setRightFlag(0);
     let newTemp = JSON.parse(JSON.stringify(temp));
@@ -43,6 +46,8 @@ function NamesComparerMS(props) {
     let length = namesArray.length;
     if (newTemp.length === length) {
       //przekazanie temp do inputArray
+      //console.log('uruchomiono warunek w  finishingMove');
+
       var sortedCompleteArray = JSON.parse(JSON.stringify(newTemp));
       setNamesArray(sortedCompleteArray);
       setTemp(() => []);
@@ -51,7 +56,8 @@ function NamesComparerMS(props) {
     }
   }
 
-  //
+  //coś się zaczyna dziać - sprawdzić dlaczego póki co zwraca tablicę w rodzaju: [null, [imię przegranego]]] :)
+  // problem był moim zdaniem z kolejnością wykonywania działań podczas używania .shift
 
   const stepByStepMergeSort = (winnerName) => {
     let length = namesArray.length;
@@ -69,22 +75,30 @@ function NamesComparerMS(props) {
 
           if (left.length && right.length) {
 
-            if (left[0] == winnerName) {
+            if (left[0] === winnerName) {
               //sprawdzić, czy left.shift tutaj zmieni od razu tablicę, czy nie, jeśli nie wtedy zmienić formułę niżej na if(!(left.length-1)) Sprawdzę dla samego left, czy zmienia działanie
-              setSortedArr((current) => [...current, left.shift()])
+              let winner = left.shift();
+              setSortedArr((current) => [...current, winner])
               setLeftFlag(leftFlag + 1);
 
-              if (!(left.length-1)) {
-                setSortedArr((current) => [...current, right]);
+              if (!(left.length)) {
+                setSortedArr((current) => [...current, ...right]);
                 setFinnishingFlag((current) => !current);
               }
             }
-            else if (right[0] == winnerName) {
-              setSortedArr((current) => [...current, right.shift()])
+            else if (right[0] === winnerName) {
+              let winner = right.shift();
+              setSortedArr(
+                (current) => { return ([...current, winner]) }
+              )
+              //console.log('1 warunek wywołany');
               setRightFlag(rightFlag + 1);
 
-              if (!(right.length-1)) {
-                setSortedArr((current) => [...current, left]);
+              if (!(right.length)) {
+                setSortedArr(
+                  (current) => { return ([...current, ...left]) }
+                );
+                //console.log('2 warunek wywołany');
                 setFinnishingFlag((current) => !current);
               }
             }
