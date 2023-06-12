@@ -32,7 +32,13 @@ function NamesComparerMS(props) {
 
 
   useEffect(() => { finishingMove() }, [finnishingFlag]);
-  useEffect(() => { /* console.log(namesArray) */; setCurrentNames([namesArray[low], namesArray[low + size]]) }, [temp]);
+  useEffect(() => {
+    if (size < namesArray.length) {
+      setCurrentNames([namesArray[low], namesArray[low + size]])
+    }
+    else { setCurrentNames(['Koniec', 'Porównań:)']) }
+  }
+    , [temp]);
 
   const finishingMove = () => {
     //console.log('uruchomiono finishingMove');
@@ -63,11 +69,11 @@ function NamesComparerMS(props) {
       var sortedCompleteArray = JSON.parse(JSON.stringify(newTemp));
       setNamesArray(sortedCompleteArray);
       setTemp(() => []);
-      
+
       // console.log(namesArray);
       console.log(newTemp)
     }
-    
+
     //setCurrentNames([namesArray[low], namesArray[low + size]]);
 
   }
@@ -77,175 +83,290 @@ function NamesComparerMS(props) {
 
   //jak ustawić wyświetlanie aktualnie porównywanych imion
 
+
+  //DZIAŁA! Brakuje tylko warunków kończących całość porównań :) (czyli czegoś np. co bada długość tablicy itp)
+
   const stepByStepMergeSort = (winnerName) => {
     let length = namesArray.length;
 
-    if (size === 1) {
-      if (low < length - size) {
-        // LOW = 0
-        if (low === 0) {
-          /* setMid(low + size - 1)
-          setHigh(Math.min(low + (size * 2 - 1), length - 1)) */
-          var mid = low + size - 1,
-            high = Math.min(low + (size * 2 - 1), length - 1);
+    if (size < length) {
+      if (size === 1) {
+        if (low < length - size) {
+          // LOW = 0
+          if (low === 0) {
+            /* setMid(low + size - 1)
+            setHigh(Math.min(low + (size * 2 - 1), length - 1)) */
+            var mid = low + size - 1,
+              high = Math.min(low + (size * 2 - 1), length - 1);
 
-          let left = namesArray.slice(low + leftFlag, mid + 1);
-          let right = namesArray.slice(mid + 1 + rightFlag, high + 1);
+            let left = namesArray.slice(low + leftFlag, mid + 1);
+            let right = namesArray.slice(mid + 1 + rightFlag, high + 1);
 
-          if (left.length && right.length) {
+            if (left.length && right.length) {
 
-            if (left[0] === winnerName) {
+              if (left[0] === winnerName) {
 
-              let winner = left.shift();
-              setSortedArr((current) => [...current, winner])
-              setLeftFlag(leftFlag + 1);
+                let winner = left.shift();
+                setSortedArr((current) => [...current, winner])
+                setLeftFlag(leftFlag + 1);
 
-              if (!(left.length)) {
-                setSortedArr((current) => [...current, ...right]);
-                setLow((current) => current + size * 2);
-                setFinnishingFlag((current) => !current);
+                if (!(left.length)) {
+                  setSortedArr((current) => [...current, ...right]);
+                  setLow((current) => current + size * 2);
+                  setFinnishingFlag((current) => !current);
+                }
+                else (
+                  setCurrentNames([left[0], right[0]])
+                )
+
               }
-              else (
-                setCurrentNames([left[0], right[0]])
-              )
-
-            }
-            else if (right[0] === winnerName) {
-              let winner = right.shift();
-              setSortedArr(
-                (current) => { return ([...current, winner]) }
-              )
-              console.log('1 warunek wywołany');
-              setRightFlag(rightFlag + 1);
-
-              if (!(right.length)) {
+              else if (right[0] === winnerName) {
+                let winner = right.shift();
                 setSortedArr(
-                  (current) => { return ([...current, ...left]) }
-                );
-                setLow((current) => current + size * 2);
-                console.log('2 warunek wywołany');
-                setFinnishingFlag((current) => !current);
+                  (current) => { return ([...current, winner]) }
+                )
+                //console.log('1 warunek wywołany');
+                setRightFlag(rightFlag + 1);
+
+                if (!(right.length)) {
+                  setSortedArr(
+                    (current) => { return ([...current, ...left]) }
+                  );
+                  setLow((current) => current + size * 2);
+                  //console.log('2 warunek wywołany');
+                  setFinnishingFlag((current) => !current);
+                }
+                else (
+                  setCurrentNames([left[0], right[0]])
+                )
               }
-              else (
-                setCurrentNames([left[0], right[0]])
-              )
+              else {
+                console.error('Error: błąd algorytmu')
+              }
             }
-            else {
-              console.error('Error: błąd algorytmu')
+          }
+          // LOW = 2
+          else if (low === 2) {
+            console.log('low = 3')
+            var mid = low + size - 1,
+              high = Math.min(low + (size * 2 - 1), length - 1);
+
+            let left = namesArray.slice(low + leftFlag, mid + 1);
+            let right = namesArray.slice(mid + 1 + rightFlag, high + 1);
+
+            if (left.length && right.length) {
+
+              if (left[0] === winnerName) {
+
+                let winner = left.shift();
+                setSortedArr((current) => [...current, winner])
+                setLeftFlag(leftFlag + 1);
+
+                if (!(left.length)) {
+                  setSortedArr((current) => [...current, ...right]);
+                  setLow((current) => current + size * 2);
+                  setFinnishingFlag((current) => !current);
+                }
+                else (
+                  setCurrentNames([left[0], right[0]])
+                )
+
+              }
+              else if (right[0] === winnerName) {
+                let winner = right.shift();
+                setSortedArr(
+                  (current) => { return ([...current, winner]) }
+                )
+                console.log('1 warunek wywołany');
+                setRightFlag(rightFlag + 1);
+
+                if (!(right.length)) {
+                  setSortedArr(
+                    (current) => { return ([...current, ...left]) }
+                  );
+                  setLow((current) => current + size * 2);
+                  console.log('2 warunek wywołany');
+                  setFinnishingFlag((current) => !current);
+                }
+                else (
+                  setCurrentNames([left[0], right[0]])
+                )
+              }
+              else {
+                console.error('Error: błąd algorytmu')
+              }
+            }
+          }
+          else if (low === 4) {
+
+          }
+          else if (low === 7) {
+
+          }
+          else if (low === 9) {
+
+          }
+          else if (low === 11) {
+
+          }
+          else if (low === 13) {
+
+          }
+          else if (low === 15) {
+
+          }
+          else if (low === 17) {
+
+          }
+          else if (low === 19) {
+
+          }
+          else if (low === 21) {
+
+          }
+          else if (low === 23) {
+
+          }
+          else if (low === 25) {
+
+          }
+          else if (low === 27) {
+
+          }
+          else if (low === 29) {
+
+          }
+        }
+        else {
+          //setSize(size * 2)
+        }
+      }
+
+      else if (size === 2) {
+        if (low < length - size) {
+          // LOW = 0
+          if (low === 0) {
+            /* setMid(low + size - 1)
+            setHigh(Math.min(low + (size * 2 - 1), length - 1)) */
+            var mid = low + size - 1,
+              high = Math.min(low + (size * 2 - 1), length - 1);
+
+            let left = namesArray.slice(low + leftFlag, mid + 1);
+            let right = namesArray.slice(mid + 1 + rightFlag, high + 1);
+
+            if (left.length && right.length) {
+
+              if (left[0] === winnerName) {
+
+                let winner = left.shift();
+                setSortedArr((current) => [...current, winner])
+                setLeftFlag(leftFlag + 1);
+
+                if (!(left.length)) {
+                  setSortedArr((current) => [...current, ...right]);
+                  setLow((current) => current + size * 2);
+                  setFinnishingFlag((current) => !current);
+                }
+                else (
+                  setCurrentNames([left[0], right[0]])
+                )
+
+              }
+              else if (right[0] === winnerName) {
+                let winner = right.shift();
+                setSortedArr(
+                  (current) => { return ([...current, winner]) }
+                )
+                console.log('1 warunek wywołany');
+                setRightFlag(rightFlag + 1);
+
+                if (!(right.length)) {
+                  setSortedArr(
+                    (current) => { return ([...current, ...left]) }
+                  );
+                  setLow((current) => current + size * 2);
+                  console.log('2 warunek wywołany');
+                  setFinnishingFlag((current) => !current);
+                }
+                else (
+                  setCurrentNames([left[0], right[0]])
+                )
+              }
+              else {
+                console.error('Error: błąd algorytmu')
+              }
+            }
+          }
+          // LOW = 2
+          else if (low === 2) {
+            console.log('low = 3')
+            var mid = low + size - 1,
+              high = Math.min(low + (size * 2 - 1), length - 1);
+
+            let left = namesArray.slice(low + leftFlag, mid + 1);
+            let right = namesArray.slice(mid + 1 + rightFlag, high + 1);
+
+            if (left.length && right.length) {
+
+              if (left[0] === winnerName) {
+
+                let winner = left.shift();
+                setSortedArr((current) => [...current, winner])
+                setLeftFlag(leftFlag + 1);
+
+                if (!(left.length)) {
+                  setSortedArr((current) => [...current, ...right]);
+                  setLow((current) => current + size * 2);
+                  setFinnishingFlag((current) => !current);
+                }
+                else (
+                  setCurrentNames([left[0], right[0]])
+                )
+
+              }
+              else if (right[0] === winnerName) {
+                let winner = right.shift();
+                setSortedArr(
+                  (current) => { return ([...current, winner]) }
+                )
+                console.log('1 warunek wywołany');
+                setRightFlag(rightFlag + 1);
+
+                if (!(right.length)) {
+                  setSortedArr(
+                    (current) => { return ([...current, ...left]) }
+                  );
+                  setLow((current) => current + size * 2);
+                  console.log('2 warunek wywołany');
+                  setFinnishingFlag((current) => !current);
+                }
+                else (
+                  setCurrentNames([left[0], right[0]])
+                )
+              }
+              else {
+                console.error('Error: błąd algorytmu')
+              }
             }
           }
         }
-        // LOW = 2
-        else if (low === 2) {
-          console.log('low = 3')
-          var mid = low + size - 1,
-            high = Math.min(low + (size * 2 - 1), length - 1);
-
-          let left = namesArray.slice(low + leftFlag, mid + 1);
-          let right = namesArray.slice(mid + 1 + rightFlag, high + 1);
-
-          if (left.length && right.length) {
-
-            if (left[0] === winnerName) {
-
-              let winner = left.shift();
-              setSortedArr((current) => [...current, winner])
-              setLeftFlag(leftFlag + 1);
-
-              if (!(left.length)) {
-                setSortedArr((current) => [...current, ...right]);
-                setLow((current) => current + size * 2);
-                setFinnishingFlag((current) => !current);
-              }
-              else (
-                setCurrentNames([left[0], right[0]])
-              )
-
-            }
-            else if (right[0] === winnerName) {
-              let winner = right.shift();
-              setSortedArr(
-                (current) => { return ([...current, winner]) }
-              )
-              console.log('1 warunek wywołany');
-              setRightFlag(rightFlag + 1);
-
-              if (!(right.length)) {
-                setSortedArr(
-                  (current) => { return ([...current, ...left]) }
-                );
-                setLow((current) => current + size * 2);
-                console.log('2 warunek wywołany');
-                setFinnishingFlag((current) => !current);
-              }
-              else (
-                setCurrentNames([left[0], right[0]])
-              )
-            }
-            else {
-              console.error('Error: błąd algorytmu')
-            }
-          }
-        }
-        else if (low === 4) {
-
-        }
-        else if (low === 7) {
-
-        }
-        else if (low === 9) {
-
-        }
-        else if (low === 11) {
-
-        }
-        else if (low === 13) {
-
-        }
-        else if (low === 15) {
-
-        }
-        else if (low === 17) {
-
-        }
-        else if (low === 19) {
-
-        }
-        else if (low === 21) {
-
-        }
-        else if (low === 23) {
-
-        }
-        else if (low === 25) {
-
-        }
-        else if (low === 27) {
-
-        }
-        else if (low === 29) {
-
-        }
       }
-      else {
-        //setSize(size * 2)
+
+      else if (size === 4) {
+
+      }
+
+      else if (size === 8) {
+
+      }
+
+      else if (size === 16) {
+
       }
     }
-
-    else if (size === 2) {
-
-    }
-
-    else if (size === 4) {
-
-    }
-
-    else if (size === 8) {
-
-    }
-
-    else if (size === 16) {
-
+    else {
+      //to pojawia się po ostatnim kliknięciu, można by to inaczej zrobić...
+      console.log('koniec porównań')
     }
   }
 
