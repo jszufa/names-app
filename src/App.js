@@ -4,7 +4,7 @@ import NamesComparer from './NamesComparer';
 import NamesComparerMS from './NamesComparerMS';
 
 /* let maleNamesArray = ["Ignacy", "Bernard", "Hugon", "Antoni", "Tadeusz", "Jan", "Stanisław", "Łukasz", "Marcin"]; */
-let maleNamesArray = ["Ignacy", "Bernard"];
+let maleNamesArray = ["Ignacy", "Bernard", "Stanisław", 'Jan'];
 let initialWeightsArray = maleNamesArray.map(name => [name, 0]);
 
 
@@ -22,7 +22,7 @@ const createStaticCompareblePairs = (array) => {
 }
 
 let newCompareArray = createStaticCompareblePairs(maleNamesArray);
-console.log(newCompareArray);
+//console.log(newCompareArray);
 
 
 function App() {

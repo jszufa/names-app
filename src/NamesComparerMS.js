@@ -32,38 +32,57 @@ function NamesComparerMS(props) {
 
 
   useEffect(() => { finishingMove() }, [finnishingFlag]);
+  useEffect(() => { /* console.log(namesArray) */; setCurrentNames([namesArray[low], namesArray[low + size]]) }, [temp]);
 
   const finishingMove = () => {
     //console.log('uruchomiono finishingMove');
     //console.log(sortedArr);
 
+    //low aktualizuje się tutaj dwukrotnie chociaż tego nie chcę...
+    // setLow((current) => current + size * 2);
     setLeftFlag(0);
     setRightFlag(0);
+
+    //zagwozdka - jak zrobić referencję do kolejnych dwóch imion do porównywania z listy names array (to zależy od size oraz low)
+
     let newTemp = JSON.parse(JSON.stringify(temp));
     newTemp.push(...sortedArr);
     setTemp(() => newTemp);
+    setSortedArr(() => []);
+
+    //prawdopodobnie stan temp jest niepotrzebny i wystarczy sam sortedArr - aleee używam temp'a do wywołania zmiany "setCurrentNames" (czyli innymi słowy, za każdym razem kiedy zostanie wywołany finishing move (ale już po jego wywołaniu))
+    console.log(sortedArr);
 
     let length = namesArray.length;
     if (newTemp.length === length) {
       //przekazanie temp do inputArray
       //console.log('uruchomiono warunek w  finishingMove');
+      setSize(size * 2);
+      setLow(() => 0);
 
       var sortedCompleteArray = JSON.parse(JSON.stringify(newTemp));
       setNamesArray(sortedCompleteArray);
       setTemp(() => []);
+      
       // console.log(namesArray);
       console.log(newTemp)
     }
+    
+    //setCurrentNames([namesArray[low], namesArray[low + size]]);
+
   }
 
   //coś się zaczyna dziać - sprawdzić dlaczego póki co zwraca tablicę w rodzaju: [null, [imię przegranego]]] :)
   // problem był moim zdaniem z kolejnością wykonywania działań podczas używania .shift
+
+  //jak ustawić wyświetlanie aktualnie porównywanych imion
 
   const stepByStepMergeSort = (winnerName) => {
     let length = namesArray.length;
 
     if (size === 1) {
       if (low < length - size) {
+        // LOW = 0
         if (low === 0) {
           /* setMid(low + size - 1)
           setHigh(Math.min(low + (size * 2 - 1), length - 1)) */
@@ -76,44 +95,99 @@ function NamesComparerMS(props) {
           if (left.length && right.length) {
 
             if (left[0] === winnerName) {
-              //sprawdzić, czy left.shift tutaj zmieni od razu tablicę, czy nie, jeśli nie wtedy zmienić formułę niżej na if(!(left.length-1)) Sprawdzę dla samego left, czy zmienia działanie
+
               let winner = left.shift();
               setSortedArr((current) => [...current, winner])
               setLeftFlag(leftFlag + 1);
 
               if (!(left.length)) {
                 setSortedArr((current) => [...current, ...right]);
+                setLow((current) => current + size * 2);
                 setFinnishingFlag((current) => !current);
               }
+              else (
+                setCurrentNames([left[0], right[0]])
+              )
+
             }
             else if (right[0] === winnerName) {
               let winner = right.shift();
               setSortedArr(
                 (current) => { return ([...current, winner]) }
               )
-              //console.log('1 warunek wywołany');
+              console.log('1 warunek wywołany');
               setRightFlag(rightFlag + 1);
 
               if (!(right.length)) {
                 setSortedArr(
                   (current) => { return ([...current, ...left]) }
                 );
-                //console.log('2 warunek wywołany');
+                setLow((current) => current + size * 2);
+                console.log('2 warunek wywołany');
                 setFinnishingFlag((current) => !current);
               }
+              else (
+                setCurrentNames([left[0], right[0]])
+              )
             }
             else {
               console.error('Error: błąd algorytmu')
             }
           }
-
-
-          setLow(low + size * 2)
         }
-        else if (low === 3) {
+        // LOW = 2
+        else if (low === 2) {
+          console.log('low = 3')
+          var mid = low + size - 1,
+            high = Math.min(low + (size * 2 - 1), length - 1);
 
+          let left = namesArray.slice(low + leftFlag, mid + 1);
+          let right = namesArray.slice(mid + 1 + rightFlag, high + 1);
+
+          if (left.length && right.length) {
+
+            if (left[0] === winnerName) {
+
+              let winner = left.shift();
+              setSortedArr((current) => [...current, winner])
+              setLeftFlag(leftFlag + 1);
+
+              if (!(left.length)) {
+                setSortedArr((current) => [...current, ...right]);
+                setLow((current) => current + size * 2);
+                setFinnishingFlag((current) => !current);
+              }
+              else (
+                setCurrentNames([left[0], right[0]])
+              )
+
+            }
+            else if (right[0] === winnerName) {
+              let winner = right.shift();
+              setSortedArr(
+                (current) => { return ([...current, winner]) }
+              )
+              console.log('1 warunek wywołany');
+              setRightFlag(rightFlag + 1);
+
+              if (!(right.length)) {
+                setSortedArr(
+                  (current) => { return ([...current, ...left]) }
+                );
+                setLow((current) => current + size * 2);
+                console.log('2 warunek wywołany');
+                setFinnishingFlag((current) => !current);
+              }
+              else (
+                setCurrentNames([left[0], right[0]])
+              )
+            }
+            else {
+              console.error('Error: błąd algorytmu')
+            }
+          }
         }
-        else if (low === 5) {
+        else if (low === 4) {
 
         }
         else if (low === 7) {
@@ -154,7 +228,7 @@ function NamesComparerMS(props) {
         }
       }
       else {
-        setSize(size * 2)
+        //setSize(size * 2)
       }
     }
 
