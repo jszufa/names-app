@@ -1,30 +1,107 @@
-let inputArray = [5, 7, 1, 4, 14, 2, 28, 3]
+// low - index pierwszego wyrazu tablicy
+// mid - index środkowego wyrazu tablicy
+// high - index ostatniego wyrazu tablicy
+
+//nie wiem dlaczego to nie działa dla nieparzystej liczby elementów, a to istotne pod kątem rozwiązania...
+// nie działa tak samo dla czegoś co nie jest potęgą dwójki... czyli tutaj potrzebuję poprawić kod
+// a konkretnie potrzebuję poprawić funkcję merge
+
+let numbers = [30, 7, 6, 5, 1, 13, 6];
+
+function bottomUpMergeSort(inputArray) {
+  var length = inputArray.length;
+  var size = 1;
+  var temp = []; //allocate space just once
+
+  for (size; size < length; size = size * 2) {
+    var low = 0;
+    //console.log(`The size value is ${size}`)
+
+    for (low; low < length - size; low += size * 2) {
+      var mid = low + size - 1,
+        high = Math.min(low + (size * 2 - 1), length - 1);
+      /* console.log(`The low value is ${low}`);
+      console.log(`The mid value is ${mid}`);
+      console.log(`The high value is ${high}`) */
+
+      console.log(`size: ${size}`);
+      merge(inputArray, temp, low, mid, high);
+
+      //warunek na ostatni przebieg pętli - reset tablicy roboczej
+      //ten warunek jest kiepawy..
+      //chciałbym żeby program dopisywał listę, która nie musi być sortowana w tym kroku, na koniec listy, czyli, żeby dopisywał zawsze posortowaną końcówkę sortedArray (sortedArray.length - temp.length)
+
+      //Pytanie - kiedy ma to robić... w tym przypadku temp.length === length - 2
+      //kiedy byłoby - 1 też miałoby to sens
+      //W sumie to jest zawsze moment tuż przed tym jak zmienia się size
+      //więc jeśli low + size*2 < length - size wtedy powinienem uruchomić warunek...
+
+      if (low + size*2 >= length - size) {
+        //przekazanie temp do inputArray
+        let sortedTail = inputArray.slice(temp.length);
+        temp.push(...sortedTail);
+        var sortedArray = JSON.parse(JSON.stringify(temp));
+        inputArray = sortedArray;
+        temp = [];
+      }
+
+      // przełożyć ten warunek na kod w react
+      
+      /* if (temp.length === length) {
+        //przekazanie temp do inputArray
+        var sortedArray = JSON.parse(JSON.stringify(temp));
+        inputArray = sortedArray;
+        temp = [];
+      } */
+    }
+  }
+
+  return inputArray;
+}
 
 
 function merge(inputArray, temp, low, mid, high) {
-    //
-}
 
+  let left = inputArray.slice(low, mid + 1);
+  let right = inputArray.slice(mid + 1, high + 1);
 
-function bottomUpMergeSort(inputArray) {
-    var length = inputArray.length,
-        size = 1,
-        temp = []; //allocate space just once
+  
+  console.log(`Low: ${low}`);
+  console.log(`Mid: ${mid}`);
+  console.log(`High: ${high}`);
+  
+  /* let right = inputArray.slice(mid + 1, high + 1); */
 
-    for (size; size < length; size = size*2) {
-        var low = 0;
-
-
-        for(low; low < length-size; low += size*2) {
-            var mid = low + size - 1,
-                high = Math.min(low + (size*2 - 1), length -1);
-
-            ArraySort.merge(inputArray, temp, low, mid, high);
-        }
+  let sortedArr = [];
+  while (left.length && right.length) {
+    // Inserts the smallest/biggest item into sortedArr
+    // Tutaj powinno się wyświetlać zapytanie dla użytkownika
+    // przy każdym kliknięciu powinniśmy się przesuwać jeden krok dalej w algorytmie
+    // czy zmienne występujące w tej funkcji muszę w takim razie wrzucić w stany lub local storage?
+    if (left[0] < right[0]) {
+      sortedArr.push(left.shift())
+    } else {
+      sortedArr.push(right.shift())
     }
+  }
 
-    return inputArray;
+  temp.push(...sortedArr, ...left, ...right);
+  console.log(`temp: ${temp}`);
+
+  
+
+  //console.log(`oto temp ${temp}`);
+  //console.log(temp);
+  //console.log(`Length inputArray to ${inputArray.length}, a length temp to ${temp.length}`);
 }
+
+//bottomUpMergeSort(numbers);
+console.log(bottomUpMergeSort(numbers));
+
+
+
+
+
 
 // low - index pierwszego wyrazu tablicy
 // mid - index środkowego wyrazu tablicy
@@ -42,7 +119,7 @@ function bottomUpMergeSort(inputArray) {
   //wersja algorytmu statyczna top down, porównująca stringi
   //ja potrzebuję wersji bottom up
 
-  function merge(left, right) {
+  function merge2(left, right) {
     let sortedArr = [] // the sorted items will go here
     while (left.length && right.length) {
       // Insert the smallest item into sortedArr
@@ -64,7 +141,7 @@ function bottomUpMergeSort(inputArray) {
     // Recursive calls
     let left = mergeSort(arr.slice(0, mid))
     let right = mergeSort(arr.slice(mid))
-    return merge(left, right)
+    return merge2(left, right)
   }
 
   useEffect(() => { mergeSort(namesArray); }, []);
