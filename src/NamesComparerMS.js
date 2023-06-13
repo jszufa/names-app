@@ -12,6 +12,7 @@ function NamesComparerMS(props) {
       setCurrentNames([namesArray[0], namesArray[1]])
     } */
 
+  //oszczędność algorytmu fajnie widać na 3 elementach
 
   // low - index pierwszego wyrazu tablicy
   // mid - index środkowego wyrazu tablicy
@@ -33,7 +34,7 @@ function NamesComparerMS(props) {
 
   useEffect(() => { finishingMove() }, [finnishingFlag]);
   useEffect(() => {
-    if (size + 1 < namesArray.length) {
+    if (size < namesArray.length) {
       setCurrentNames([namesArray[low], namesArray[low + size]])
     }
     else { setCurrentNames(['Koniec', 'Porównań:)']) }
@@ -61,7 +62,27 @@ function NamesComparerMS(props) {
 
     let length = namesArray.length;
     console.log(temp);
-    if (newTemp.length === length) {
+    if (low >= length - size) {
+      //przekazanie temp do inputArray
+      //console.log('uruchomiono warunek w  finishingMove');
+      setSize(size * 2);
+      setLow(() => 0);
+
+      var sortedCompleteArray = JSON.parse(JSON.stringify(newTemp));
+      //dodaję posortowany ogon tablicy, jeśli liczba elementów w nim jest mniejsza niż size
+      let sortedTail = namesArray.slice(sortedCompleteArray.length);
+      //console.log(sortedTail);
+      sortedCompleteArray.push(...sortedTail);
+
+      setNamesArray(sortedCompleteArray);
+      setTemp(() => []);
+
+      // console.log(namesArray);
+      console.log(newTemp)
+    }
+
+    //Kopia zapasowa warunku
+    /* if (newTemp.length === length) {
       //przekazanie temp do inputArray
       //console.log('uruchomiono warunek w  finishingMove');
       setSize(size * 2);
@@ -73,16 +94,17 @@ function NamesComparerMS(props) {
 
       // console.log(namesArray);
       console.log(newTemp)
-    }
-    //Nieparzysta liczba elementów w namesArray
-    /* else if (newTemp.length === length-1) {
+    } */
+
+    //Nieparzysta liczba elementów w namesArray - (przy pierwszym przebiegu)
+    /* else if (newTemp.length === length - 1) {
       //przekazanie temp do inputArray
       //console.log('uruchomiono warunek w  finishingMove');
       setSize(size * 2);
       setLow(() => 0);
 
       var sortedCompleteArray = JSON.parse(JSON.stringify(newTemp));
-      sortedCompleteArray.push(namesArray[length-1]);
+      sortedCompleteArray.push(namesArray[length - 1]);
       setNamesArray(sortedCompleteArray);
       setTemp(() => []);
 
@@ -103,11 +125,12 @@ function NamesComparerMS(props) {
   //DZIAŁA! Brakuje tylko warunków kończących całość porównań :) (czyli czegoś np. co bada długość tablicy itp)
 
   //Mam problem przy nieparzystej liczbie imion, bo ostatnie imię czeka aż do ostatniego porównania...
+  // spojrzeć sobie spokojnie na graf bottom up merge sort i wtedy coś wymyślić.
 
   const stepByStepMergeSort = (winnerName) => {
     let length = namesArray.length;
 
-    if (size + 1 < length) {
+    if (size  < length) {
       if (size === 1) {
         if (low < length - size) {
           // LOW = 0
@@ -119,7 +142,7 @@ function NamesComparerMS(props) {
 
             let left = namesArray.slice(low + leftFlag, mid + 1);
             let right = namesArray.slice(mid + 1 + rightFlag, high + 1);
-            
+
             //warunek dla nieparzystych / parzystych tablic - ale nie działa jeśli wybiorę najpierw lewy element bo prawy jest nieposortowany, zastanowić się jak to zrobić...
             /* if right.length == 2, wykonaj porównanie dla ostatniej
             (czyli - jeśli length%2 == 1 porównaj dwa ostatnie elementy) */
@@ -130,7 +153,7 @@ function NamesComparerMS(props) {
             else {
               right = namesArray.slice(mid + 1 + rightFlag, high + 1);
             } */
-      
+
 
             if (left.length && right.length) {
 
@@ -177,7 +200,7 @@ function NamesComparerMS(props) {
           }
           // LOW = 2
           else if (low === 2) {
-            console.log('low = 3')
+            
             var mid = low + size - 1,
               high = Math.min(low + (size * 2 - 1), length - 1);
 
@@ -228,10 +251,107 @@ function NamesComparerMS(props) {
             }
           }
           else if (low === 4) {
+            // LOW = 4
+            var mid = low + size - 1,
+              high = Math.min(low + (size * 2 - 1), length - 1);
 
+            let left = namesArray.slice(low + leftFlag, mid + 1);
+            let right = namesArray.slice(mid + 1 + rightFlag, high + 1);
+
+            if (left.length && right.length) {
+
+              if (left[0] === winnerName) {
+
+                let winner = left.shift();
+                setSortedArr((current) => [...current, winner])
+                setLeftFlag(leftFlag + 1);
+
+                if (!(left.length)) {
+                  setSortedArr((current) => [...current, ...right]);
+                  setLow((current) => current + size * 2);
+                  setFinnishingFlag((current) => !current);
+                }
+                else (
+                  setCurrentNames([left[0], right[0]])
+                )
+
+              }
+              else if (right[0] === winnerName) {
+                let winner = right.shift();
+                setSortedArr(
+                  (current) => { return ([...current, winner]) }
+                )
+                console.log('1 warunek wywołany');
+                setRightFlag(rightFlag + 1);
+
+                if (!(right.length)) {
+                  setSortedArr(
+                    (current) => { return ([...current, ...left]) }
+                  );
+                  setLow((current) => current + size * 2);
+                  console.log('2 warunek wywołany');
+                  setFinnishingFlag((current) => !current);
+                }
+                else (
+                  setCurrentNames([left[0], right[0]])
+                )
+              }
+              else {
+                console.error('Error: błąd algorytmu')
+              }
+            }
           }
-          else if (low === 7) {
+          else if (low === 6) {
+            
+            //LOW = 6
+            var mid = low + size - 1,
+              high = Math.min(low + (size * 2 - 1), length - 1);
 
+            let left = namesArray.slice(low + leftFlag, mid + 1);
+            let right = namesArray.slice(mid + 1 + rightFlag, high + 1);
+
+            if (left.length && right.length) {
+
+              if (left[0] === winnerName) {
+
+                let winner = left.shift();
+                setSortedArr((current) => [...current, winner])
+                setLeftFlag(leftFlag + 1);
+
+                if (!(left.length)) {
+                  setSortedArr((current) => [...current, ...right]);
+                  setLow((current) => current + size * 2);
+                  setFinnishingFlag((current) => !current);
+                }
+                else (
+                  setCurrentNames([left[0], right[0]])
+                )
+
+              }
+              else if (right[0] === winnerName) {
+                let winner = right.shift();
+                setSortedArr(
+                  (current) => { return ([...current, winner]) }
+                )
+                console.log('1 warunek wywołany');
+                setRightFlag(rightFlag + 1);
+
+                if (!(right.length)) {
+                  setSortedArr(
+                    (current) => { return ([...current, ...left]) }
+                  );
+                  setLow((current) => current + size * 2);
+                  console.log('2 warunek wywołany');
+                  setFinnishingFlag((current) => !current);
+                }
+                else (
+                  setCurrentNames([left[0], right[0]])
+                )
+              }
+              else {
+                console.error('Error: błąd algorytmu')
+              }
+            }
           }
           else if (low === 9) {
 
@@ -380,6 +500,7 @@ function NamesComparerMS(props) {
             }
           }
         }
+      else {console.log ('low jest większe od length - size')}
       }
 
       else if (size === 4) {
@@ -492,7 +613,7 @@ function NamesComparerMS(props) {
         }
       }
 
-      
+
 
       else if (size === 8) {
 
