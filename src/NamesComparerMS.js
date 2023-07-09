@@ -116,6 +116,7 @@ function NamesComparerMS(props) {
     }
     else {
       console.log('koniec porównań, Mistrzu');
+      console.log(namesArray);
     }
   }
 
