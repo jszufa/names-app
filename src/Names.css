@@ -1,0 +1,35 @@
+.names{
+    background-color: #66ccff;
+    height: 80vh;
+    width: 100%;
+    padding-top: 60px;
+    padding-left: 60px;
+    text-align: left;
+
+}
+
+.names h1 {
+    margin-top: 0; 
+    color: darkblue;
+}
+
+.names input {
+    height: 20px;
+    border: none;
+    padding: 10px;
+    font-size: 1em;
+}
+
+.names button {
+    margin-left: 10px;
+    height: 40px;
+    background-color: #0066ff;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.names button:hover {
+    background-color: #003399;
+
+}

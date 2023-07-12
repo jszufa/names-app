@@ -1,6 +1,7 @@
 import './App.css';
 
 import NamesComparerMS from './NamesComparerMS';
+import Names from './Names';
 import { maleNamesArray } from './helpers/initAppHelper';
 
 //Randomizing order
@@ -14,6 +15,7 @@ function App() {
   return (
     <div className="App">
       <NamesComparerMS maleNamesArray={maleNamesArray}/>
+      <Names />
     </div>
   );
 }
