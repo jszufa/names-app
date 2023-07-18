@@ -4,7 +4,6 @@ import NamesList from './NamesList';
 
 function Names(props) {
 
-    const [names, setNames] = useState([]);
     let inputRef;
 
     const updateNames = (text) => {
@@ -12,9 +11,9 @@ function Names(props) {
         /* console.log('Uruchomiono updateUsers') */
         let index = Date.now();
 
-        setNames(
+        props.setNames(
             /* console.log('Uruchomiono setState') */
-            names.concat({ id: index, name: text }));
+            props.names.concat({ id: index, name: text }));
 
         if (inputRef) {
             inputRef.value = '';
@@ -25,8 +24,8 @@ function Names(props) {
         /* console.log('removeUser function'); */
         console.log(nameId);
 
-        setNames(
-            names.filter(name => name.id !== nameId)
+        props.setNames(
+            props.names.filter(name => name.id !== nameId)
         )
 
     }
@@ -37,7 +36,7 @@ function Names(props) {
             
             <input ref={(data) => { inputRef = data }} type="text" placeholder='Enter name' onKeyDown={(event) => { if (inputRef && event.key === 'Enter') { updateNames(inputRef.value) } }} />
             <button onClick={() => { if (inputRef) { updateNames(inputRef.value) } }}>Add name</button>
-            <NamesList names={names} removeMethod={removeName} />
+            <NamesList names={props.names} removeMethod={removeName} />
             
         </div>
     )

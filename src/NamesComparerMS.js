@@ -8,8 +8,8 @@ import './NamesComparerMS.css';
 
 function NamesComparerMS(props) {
 
-  const [namesArray, setNamesArray] = useState(props.maleNamesArray);
-  const [currentNames, setCurrentNames] = useState(props.maleNamesArray);
+  const [namesArray, setNamesArray] = useState([]);
+  const [currentNames, setCurrentNames] = useState(['Click here to start', ':)']);
 
   const [size, setSize] = useState(1);
   const [temp, setTemp] = useState([]);
@@ -29,9 +29,24 @@ function NamesComparerMS(props) {
     if (size < namesArray.length) {
       setCurrentNames([namesArray[low], namesArray[low + size]])
     }
+    else if (namesArray.length === 0) {return}
     else { setCurrentNames(['Koniec', 'Porównań:)']) }
   }
     , [temp]);
+
+
+  const initializeComparison = () => {
+    let newNamesArray = props.namesPool.map((object) => object.name);
+    newNamesArray.sort(function () {
+      return Math.random() - 0.5;
+    });
+    console.log(newNamesArray);
+    setNamesArray(newNamesArray);
+    setCurrentNames(newNamesArray);
+  }
+
+/*   useEffect(() => {initializeComparison}) */
+
 
   const finishingMove = () => {
 
@@ -44,7 +59,8 @@ function NamesComparerMS(props) {
     setSortedArr(() => []);
 
     let length = namesArray.length;
-    if (low >= length - size) {
+    // !!! tutaj przy warunku "&& namesArray.length > 0" można pewnie uprościć
+    if (low >= length - size && namesArray.length > 0) {
       //przekazanie temp do inputArray
       setSize(size * 2);
       setLow(() => 0);
@@ -64,9 +80,15 @@ function NamesComparerMS(props) {
 
   //MERG SORT INITIALIZED BY USER
   const stepByStepMergeSort = (winnerName) => {
+    if (namesArray.length === 0) {
+      initializeComparison();
+      return;
+    }
+    
     let length = namesArray.length;
 
-    if (size < length) {
+    // !!! tutaj przy warunku "&& namesArray.length > 0" można pewnie uprościć
+    if (size < length && namesArray.length > 0) {
       var mid = low + size - 1,
         high = Math.min(low + (size * 2 - 1), length - 1);
 
