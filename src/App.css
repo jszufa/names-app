@@ -36,3 +36,29 @@
     transform: rotate(360deg);
   }
 }
+
+.App section{
+  width: 70%;
+  margin: auto;
+  margin-top: 100px;
+}
+
+.App h2 {
+  margin-top: 40px; 
+  color: rgba(0, 0, 139, 0.678);
+  text-transform: uppercase;
+  font-weight: 400;
+}
+
+.App h3 {
+  text-align: left;
+}
+
+.App p {
+  color: rgb(129, 129, 129);
+}
+
+.App .CompareWindow {
+  margin-bottom: 160px;
+  margin-top: 100px;
+}

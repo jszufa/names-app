@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import './NamesComparer.css';
+import './NamesComparerMS.css';
 
 // oszczędność algorytmu fajnie widać na 3 elementach
 // low - index pierwszego wyrazu tablicy

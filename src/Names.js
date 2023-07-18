@@ -34,13 +34,11 @@ function Names(props) {
 
     return (
         <div className='names'>
-            <h2>1. Create pool of names</h2>
-            <p>Together with your partner, create a list of names from which you want to choose. Each of you can enter your name suggestions here.</p>
+            
             <input ref={(data) => { inputRef = data }} type="text" placeholder='Enter name' onKeyDown={(event) => { if (inputRef && event.key === 'Enter') { updateNames(inputRef.value) } }} />
-
             <button onClick={() => { if (inputRef) { updateNames(inputRef.value) } }}>Add name</button>
-
             <NamesList names={names} removeMethod={removeName} />
+            
         </div>
     )
 }
