@@ -14,8 +14,8 @@ maleNamesArray.sort(function () {
 function App() {
   return (
     <div className="App">
-      <NamesComparerMS maleNamesArray={maleNamesArray}/>
       <Names />
+      <NamesComparerMS maleNamesArray={maleNamesArray}/>
     </div>
   );
 }
