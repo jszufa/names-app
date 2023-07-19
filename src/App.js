@@ -3,19 +3,15 @@ import { useState } from 'react';
 
 import NamesComparerMS from './NamesComparerMS';
 import Names from './Names';
-import { maleNamesArray } from './helpers/initAppHelper';
-
-//Randomizing order
-maleNamesArray.sort(function () {
-  return Math.random() - 0.5;
-});
-
-/* console.log(maleNamesArray); */
+import Results from './Results';
 
 function App() {
 
   //contains array of objects: {id: , name: }
   const [namesPool, setNamesPool] = useState([]);
+
+  const [ranking, setRanking] = useState([]);
+  console.log(ranking);
 
 
 
@@ -37,14 +33,19 @@ function App() {
         
         <div className='CompareWindow'>
           <h3>Person A</h3>
-          <NamesComparerMS maleNamesArray={maleNamesArray} namesPool={namesPool} />
+          <NamesComparerMS namesPool={namesPool} setRanking={setRanking} />
           <p>Click on the name that you would prefer to give to your child.</p>
         </div>
         <div className='CompareWindow'>
           <h3>Person B</h3>
-          <NamesComparerMS maleNamesArray={maleNamesArray} namesPool={namesPool} />
+          <NamesComparerMS namesPool={namesPool} setRanking={setRanking}/>
           <p>Click on the name that you would prefer to give to your child.</p>
         </div>
+      </section>
+      <section className='ResultsSection'>
+      <h2>4. See your top names</h2>
+        <p> Lorem ipsum tralalipsum </p>
+        <Results ranking={ranking}/>
       </section>
     </div>
   );

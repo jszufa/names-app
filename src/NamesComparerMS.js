@@ -26,17 +26,31 @@ function NamesComparerMS(props) {
 
   useEffect(() => { finishingMove() }, [finnishingFlag]);
   useEffect(() => {
+    //for the process of comparison
     if (size < namesArray.length) {
       setCurrentNames([namesArray[low], namesArray[low + size]])
     }
-    else if (namesArray.length === 0) {return}
-    else { setCurrentNames(['Koniec', 'Porównań:)']) }
+    //for initialization
+    else if (namesArray.length === 0) { return }
+    //for the end of comparison
+    else {
+      setCurrentNames(['Perfect, you did it!', 'Continue with the second person or see the results below.']);
+
+      props.setRanking(
+        (r)=> {r.push(namesArray);
+        return r}
+        );
+    }
   }
     , [temp]);
 
 
   const initializeComparison = () => {
+
+    //converting 
     let newNamesArray = props.namesPool.map((object) => object.name);
+
+    //randomizing order
     newNamesArray.sort(function () {
       return Math.random() - 0.5;
     });
@@ -44,8 +58,6 @@ function NamesComparerMS(props) {
     setNamesArray(newNamesArray);
     setCurrentNames(newNamesArray);
   }
-
-/*   useEffect(() => {initializeComparison}) */
 
 
   const finishingMove = () => {
@@ -59,8 +71,8 @@ function NamesComparerMS(props) {
     setSortedArr(() => []);
 
     let length = namesArray.length;
-    // !!! tutaj przy warunku "&& namesArray.length > 0" można pewnie uprościć
-    if (low >= length - size && namesArray.length > 0) {
+
+    if (low >= length - size && length > 0) {
       //przekazanie temp do inputArray
       setSize(size * 2);
       setLow(() => 0);
@@ -82,13 +94,13 @@ function NamesComparerMS(props) {
   const stepByStepMergeSort = (winnerName) => {
     if (namesArray.length === 0) {
       initializeComparison();
+      console.log('wywołano inicjalizację')
       return;
     }
-    
+
     let length = namesArray.length;
 
-    // !!! tutaj przy warunku "&& namesArray.length > 0" można pewnie uprościć
-    if (size < length && namesArray.length > 0) {
+    if (size < length && length > 0) {
       var mid = low + size - 1,
         high = Math.min(low + (size * 2 - 1), length - 1);
 
@@ -129,15 +141,15 @@ function NamesComparerMS(props) {
           )
         }
         else {
-          console.error('Error: błąd algorytmu')
+          console.error('Error: algorithm error')
         }
       }
       else {
-        console.error('Error: błąd algorytmu')
+        console.error('Error: algorithm error')
       }
     }
     else {
-      console.log('koniec porównań, Mistrzu');
+      console.log('The end of comparison, Master');
       console.log(namesArray);
     }
   }
