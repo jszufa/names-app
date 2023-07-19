@@ -8,19 +8,30 @@ function ResultsList(props) {
     let ResultsList = props.resultsArray.map(
         (data) => {
             return (
-                <li>
-                    <p>{data.name}</p>
-                    <p>{data.score}</p>
-                </li>
+                <tr key={data.name + data.score}>
+                    <td>{data.name}</td>
+                    <td>{data.score}</td>
+                </tr>
             )
         }
     )
 
-    return(
+    return (
         <div className='ResultsList'>
-            {ResultsList}
+            <table>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Score</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {ResultsList}
+                </tbody>
+            </table>
         </div>
     )
 }
+
 
 export default ResultsList;

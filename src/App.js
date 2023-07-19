@@ -20,7 +20,7 @@ function App() {
       <section className='Names-pool'>
         <h2>1. Create pool of names</h2>
         <p>Together with your partner, create a list of names from which you want to choose. Each of you can enter your name suggestions here. To remove a name from the pool just click on it.</p>
-        <Names names={namesPool} setNames={setNamesPool}/>
+        <Names names={namesPool} setNames={setNamesPool} />
       </section>
       <section className='Dealbreakers'>
         <h2>2. Cross out dealbreakers</h2>
@@ -30,7 +30,7 @@ function App() {
         <h2>3. Duels of names</h2>
         <p> Complete a series of name compraisons to determine your preference ranking. In this part of the proces you will individually choose which name from the dispalyed pair you'd prefer to give to your child. </p>
         <p>First, person A performs a series of comparisons in the window below. Then person B performs their own series of comparisons in the second window.</p>
-        
+
         <div className='CompareWindow'>
           <h3>Person A</h3>
           <NamesComparerMS namesPool={namesPool} setRanking={setRanking} />
@@ -38,14 +38,15 @@ function App() {
         </div>
         <div className='CompareWindow'>
           <h3>Person B</h3>
-          <NamesComparerMS namesPool={namesPool} setRanking={setRanking}/>
+          <NamesComparerMS namesPool={namesPool} setRanking={setRanking} />
           <p>Click on the name that you would prefer to give to your child.</p>
         </div>
       </section>
       <section className='ResultsSection'>
-      <h2>4. See your top names</h2>
-        <p> Lorem ipsum tralalipsum </p>
-        <Results ranking={ranking}/>
+        <h2>4. See your top names</h2>
+        <p> The lower the score the better!</p>
+        <p> If, for example, "Catlyn" got 3 points, it means that the name was in 3rd place for the person who likes the name less. In this type of decision there is usually one side that is less satisfied. This ranking maximizes the satisfaction of this person :) </p>
+        <Results ranking={ranking} />
       </section>
     </div>
   );
