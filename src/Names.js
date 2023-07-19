@@ -33,11 +33,11 @@ function Names(props) {
 
     return (
         <div className='names'>
-            
+
             <input ref={(data) => { inputRef = data }} type="text" placeholder='Enter name' onKeyDown={(event) => { if (inputRef && event.key === 'Enter') { updateNames(inputRef.value) } }} />
             <button onClick={() => { if (inputRef) { updateNames(inputRef.value) } }}>Add name</button>
             <NamesList names={props.names} removeMethod={removeName} />
-            
+
         </div>
     )
 }

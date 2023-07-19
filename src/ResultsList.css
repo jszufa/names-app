@@ -2,7 +2,7 @@
     margin: auto;
     margin-top: 40px;
     border: 1px solid black;
-    border-collapse: collapse; 
+    border-collapse: collapse;
     margin-bottom: 80px;
 }
 
@@ -14,21 +14,21 @@
     text-transform: uppercase;
 }
 
-.ResultsList table tbody tr  {
+.ResultsList table tbody tr {
 
     border: 1px solid black;
     font-size: 1.2em;
-    
+
 }
 
-.ResultsList table tbody > :first-child {
+.ResultsList table tbody> :first-child {
     background-color: rgba(0, 128, 0, 0.863);
 }
 
-.ResultsList table tbody > :nth-child(2) {
+.ResultsList table tbody> :nth-child(2) {
     background-color: rgba(0, 128, 0, 0.445);
 }
 
-.ResultsList table tbody > :nth-child(3) {
+.ResultsList table tbody> :nth-child(3) {
     background-color: rgba(0, 128, 0, 0.247);
 }

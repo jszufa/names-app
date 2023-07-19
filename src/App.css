@@ -32,19 +32,20 @@
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
 }
 
-.App section{
+.App section {
   width: 70%;
   margin: auto;
   margin-top: 100px;
 }
 
 .App h2 {
-  margin-top: 40px; 
+  margin-top: 40px;
   color: rgba(0, 0, 139, 0.678);
   text-transform: uppercase;
   font-weight: 400;
