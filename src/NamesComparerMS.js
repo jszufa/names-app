@@ -41,8 +41,7 @@ function NamesComparerMS(props) {
         return r}
         );
     }
-  }
-    , [temp]);
+  } , [temp]);
 
 
   const initializeComparison = () => {

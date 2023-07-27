@@ -16,7 +16,7 @@ function App() {
 
 
   return (
-    <div className="App">
+    <div className='App'>
       <section className='Names-pool'>
         <h2>1. Create pool of names</h2>
         <p>Together with your partner, create a list of names from which you want to choose. Each of you can enter your name suggestions here. To remove a name from the pool just click on it.</p>

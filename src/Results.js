@@ -3,6 +3,9 @@ import './Results.css';
 import { compareRankings } from './helpers/compareRankingsHelper';
 import ResultsList from './ResultsList';
 
+//Mogę dodać jeszcze coś w rodzaju: "show individual rankings"
+
+
 function Results(props) {
 
     const [resultsArray, setResultsArray] = useState([])
