@@ -10,16 +10,19 @@
 .names button {
     margin-left: 10px;
     height: 40px;
-    background-color: #0066ffec;
+    background-color: #f3c809;
     color: white;
     border: none;
     border-radius: 5px;
     padding: 0px 10px;
     cursor: pointer;
+    font-family: 'Nunito Sans', sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
     
 }
 
 .names button:hover {
-    background-color: #003399e5;
+    background-color: #f3c80994;
 
 }

@@ -60,6 +60,17 @@
   width: 150px;
 }
 
+.App .Footer {
+  background-color: rgb(115, 204, 255);
+  color: white;
+  height: 60px;
+}
+
+.App .Names-pool .CreateIcon {
+  height: 100px;
+  opacity: 0.6;
+}
+
 
 
 @media (min-width:992px) {
