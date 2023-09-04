@@ -1,6 +1,9 @@
 import { useState, useEffect } from 'react';
 import './NamesComparerMS.css';
 
+import swords from "./img/swords.png";
+
+
 // oszczędność algorytmu fajnie widać na 3 elementach
 // low - index pierwszego wyrazu tablicy
 // mid - index środkowego wyrazu tablicy
@@ -9,7 +12,7 @@ import './NamesComparerMS.css';
 function NamesComparerMS(props) {
 
   const [namesArray, setNamesArray] = useState([]);
-  const [currentNames, setCurrentNames] = useState(['Click here to start', ':)']);
+  const [currentNames, setCurrentNames] = useState(['Start comparisons', '']);
 
   const [size, setSize] = useState(1);
   const [temp, setTemp] = useState([]);
@@ -158,6 +161,7 @@ function NamesComparerMS(props) {
   return (
     <div className="NamesComparer">
       <button className='NameButton' onClick={() => stepByStepMergeSort(currentNames[0])}>{currentNames[0]}</button>
+      <img src={swords} className='Swords' />
       <button className='NameButton' onClick={() => stepByStepMergeSort(currentNames[1])}>{currentNames[1]}</button>
     </div>
   );

@@ -11,10 +11,19 @@
 
 .NamesComparer .NameButton {
     cursor: pointer;
-    font-size: 22px;
-    height: 50px;
+    font-size: 20px;
+    padding: 15px 30px;
     font-weight: 400;
-    border: none;
+    border: 1px solid black;
     border-radius: 10px;
     background-color: white;
+}
+
+.NamesComparer .NameButton:hover {
+    background-color: rgb(205, 255, 192);
+}
+
+.NamesComparer .Swords {
+    opacity: 0.7;
+    height: 18px
 }

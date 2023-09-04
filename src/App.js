@@ -1,5 +1,5 @@
 import './App.css';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import NamesComparerMS from './NamesComparerMS';
 import Names from './Names';
@@ -12,6 +12,13 @@ function App() {
 
   const [ranking, setRanking] = useState([]);
   console.log(ranking);
+
+  useEffect(() => {
+    console.log('odpalił się useeffect')
+    if (sessionStorage.getItem('names')) {
+      setNamesPool(JSON.parse(sessionStorage.getItem('names')))
+    }
+  }, []);
 
 
 
@@ -45,7 +52,7 @@ function App() {
       <section className='ResultsSection'>
         <h2>4. See your top names</h2>
         <p> The lower the score the better!</p>
-        <p> If, for example, "Catlyn" got 3 points, it means that the name was in 3rd place for the person who likes the name less. In this type of decision there is usually one side that is less satisfied. This ranking maximizes the satisfaction of this person :) </p>
+        <p> If, for example, "Catlyn" got 3 points, it means that the name was in 3rd place for the person who likes the name less. In this type of decision there is usually one side that is less satisfied. This ranking maximizes the satisfaction of this person. </p>
         <Results ranking={ranking} />
       </section>
     </div>

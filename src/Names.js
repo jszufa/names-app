@@ -9,8 +9,11 @@ function Names(props) {
 
         let index = Date.now();
 
-        props.setNames(
-            props.names.concat({ id: index, name: text }));
+        let updatedNames = props.names.concat({ id: index, name: text });
+
+        sessionStorage.setItem('names', JSON.stringify(updatedNames));
+
+        props.setNames(updatedNames);
 
         if (inputRef) {
             inputRef.value = '';
@@ -18,6 +21,8 @@ function Names(props) {
     }
 
     const removeName = (nameId) => {
+
+        sessionStorage.setItem('names', JSON.stringify(props.names.filter(name => name.id !== nameId)));
 
         props.setNames(
             props.names.filter(name => name.id !== nameId)
