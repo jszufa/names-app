@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import './NamesComparerMS.css';
 
-import swords from "./img/swords.png";
+import swordB from "./img/sword_blue.png";
 
 
 // oszczędność algorytmu fajnie widać na 3 elementach
@@ -37,14 +37,16 @@ function NamesComparerMS(props) {
     else if (namesArray.length === 0) { return }
     //for the end of comparison
     else {
-      setCurrentNames(['Perfect, you did it!', 'Continue with the second person or see the results below.']);
+      setCurrentNames(['Perfect, you did it! Continue with the second person or see the results below.', '']);
 
       props.setRanking(
-        (r)=> {r.push(namesArray);
-        return r}
-        );
+        (r) => {
+          r.push(namesArray);
+          return r
+        }
+      );
     }
-  } , [temp]);
+  }, [temp]);
 
 
   const initializeComparison = () => {
@@ -161,8 +163,10 @@ function NamesComparerMS(props) {
   return (
     <div className="NamesComparer">
       <button className='NameButton' onClick={() => stepByStepMergeSort(currentNames[0])}>{currentNames[0]}</button>
-      <img src={swords} className='Swords' />
-      <button className='NameButton' onClick={() => stepByStepMergeSort(currentNames[1])}>{currentNames[1]}</button>
+      {currentNames[1] &&
+        <img src={swordB} className='Swords' />}
+      {currentNames[1] &&
+        <button className='NameButton' onClick={() => stepByStepMergeSort(currentNames[1])}>{currentNames[1]}</button>}
     </div>
   );
 }

@@ -4,16 +4,22 @@
 }
 
 .App section {
-  width: 70%;
   margin: auto;
-  margin-top: 100px;
+  padding-top: 100px;
+  padding-bottom: 40px;
+}
+
+.App .ContentBox {
+  width: 70%;
+  display: inline-block;
 }
 
 .App h2 {
   margin-top: 40px;
-  color: rgba(0, 0, 139, 0.678);
+  color: #F3C809;
   text-transform: uppercase;
-  font-weight: 400;
+  font-weight: 700;
+  /* font-size: 25px; */
 }
 
 .App h3 {
@@ -29,8 +35,14 @@
   margin-top: 100px;
 }
 
+.App .CompareWindow h3 {
+  color:white;
+  text-align: center;
+  text-transform: uppercase;
+}
+
 .App .Header {
-  background-color: rgb(115, 204, 255);
+  background-color: #375BF8;
   color: white;
   font-family: 'Nunito Sans', sans-serif;
   font-size: 30px;
@@ -54,27 +66,45 @@
 }
 
 .App .Header .Baby {
-  position:absolute;
+  position: absolute;
   top: 15px;
   right: 30px;
   width: 150px;
 }
 
 .App .Footer {
-  background-color: rgb(115, 204, 255);
+  background-color: #375BF8;
   color: white;
   height: 60px;
 }
 
 .App .Names-pool .CreateIcon {
   height: 100px;
-  opacity: 0.6;
+  opacity: 0.8;
+}
+
+/* SECTION 2. DUELS OF NAMES */
+
+.App .Comparison {
+  background-color: #375BF8;
+  color: white;
+}
+
+.App .Comparison .ContentBox h2 {
+  color: white;
+}
+
+.App .Comparison .ContentBox p {
+  color: white;
+}
+
+.App .Comparison .ContentBox .CompareIcon {
+  height: 100px;
 }
 
 
-
 @media (min-width:992px) {
-  .App section {
+  .App .ContentBox {
     max-width: 900px;
   }
 }
