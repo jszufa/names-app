@@ -7,6 +7,7 @@ import Results from './Results';
 import babyboy from './img/baby-boy.png';
 import create from './img/create2.png';
 import sword from './img/sword.png';
+import trophy from './img/trophy.png';
 
 function App() {
 
@@ -34,7 +35,7 @@ function App() {
       </header>
       <section className='Names-pool'>
         <container className='ContentBox'>
-          <img src={create} className='CreateIcon' />
+          <img src={create} className='CreateIcon BigIcon' />
           <h2>1. Create pool of names</h2>
           <p>Together with your partner, create a list of names from which you want to choose. Each of you can enter your name suggestions here. To remove a name from the pool just click on it.</p>
           <Names names={namesPool} setNames={setNamesPool} />
@@ -43,7 +44,7 @@ function App() {
       </section>
       <section className='Comparison'>
         <container className='ContentBox'>
-          <img src={sword} className='CompareIcon' />
+          <img src={sword} className='CompareIcon BigIcon' />
           <h2>2. Duels of names</h2>
           <p> Complete a series of name compraisons to determine your preference ranking. In this part of the proces you will individually choose which name from the dispalyed pair you'd prefer to give to your child. </p>
           <p>First, person A performs a series of comparisons in the window below. Then person B performs their own series of comparisons in the second window.</p>
@@ -62,12 +63,17 @@ function App() {
         </container>
       </section>
       <section className='ResultsSection'>
-        <h2>3. See your top names</h2>
-        <p> The lower the score the better!</p>
-        <p> If, for example, "Catlyn" got 3 points, it means that the name was in 3rd place for the person who likes the name less. In this type of decision there is usually one side that is less satisfied. This ranking maximizes the satisfaction of this person. </p>
+        <container className='ContentBox'>
+          <img src={trophy} className='TrophyIcon BigIcon' />
+          <h2>3. See your top names</h2>
+          <p> The lower the score the better!</p>
+          <p> If, for example, "Catlyn" got 3 points, it means that the name was in 3rd place for the person who likes the name less. In this type of decision there is usually one side that is less satisfied. This ranking maximizes the satisfaction of this person. </p>
+        </container>
         <Results ranking={ranking} />
       </section>
-      <footer className='Footer'>All rights reserved</footer>
+      <footer className='Footer'>
+        <p>Created by Jerzy Szufa</p>
+      </footer>
     </div>
   );
 }
