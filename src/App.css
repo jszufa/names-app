@@ -7,6 +7,7 @@
   margin: auto;
   padding-top: 100px;
   padding-bottom: 40px;
+  position: relative;
 }
 
 .App .ContentBox {
@@ -28,6 +29,7 @@
 
 .App p {
   color: rgb(129, 129, 129);
+  font-size: 20px;
 }
 
 .App .CompareWindow {
@@ -36,7 +38,7 @@
 }
 
 .App .CompareWindow h3 {
-  color:white;
+  color: white;
   text-align: center;
   text-transform: uppercase;
 }
@@ -72,14 +74,48 @@
   width: 150px;
 }
 
-
+/* SECTION 1. NAMES POOL */
 
 .App .Names-pool .CreateIcon {
   opacity: 0.8;
 }
 
+.App .Names-pool p {
+  color: #F3C809;
+}
+
 .BigIcon {
   height: 100px;
+}
+
+/* SPEECH BUBBLES */
+
+.App .Bubble {
+  position: absolute;
+  height: 250px;
+}
+
+.App .Names-pool .SpeechB1 {
+  left:30px;
+  top: 0;
+}
+
+.App .Names-pool .SpeechB2 {
+  right:30px;
+  top: 20px;
+}
+
+.App .Comparison .SpeechB3 {
+  left:30px;
+  top: 350px;
+  height: 200px;
+}
+
+.App .Comparison .SpeechB4 {
+
+  right:30px;
+  top: 740px;
+  height: 200px;
 }
 
 /* SECTION 2. DUELS OF NAMES */
@@ -96,6 +132,12 @@
 .App .Comparison .ContentBox p {
   color: white;
 }
+
+.App .Comparison .ContentBox .CompareWindow p {
+  font-style: italic;
+  font-size: 14px;
+}
+
 
 /* SECTION 3. SEE YOUR TOP NAMES*/
 /* .App .ResultsSection .ContentBox p {

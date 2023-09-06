@@ -1,4 +1,4 @@
-ul {
+.NamesList {
     list-style: none;
     padding-left: 0;
     display: flex;
@@ -10,7 +10,7 @@ ul {
 
 }
 
-ul li {
+.NamesList li {
     /* background-color: #375BF8; */
     /* color: white; */
     border: 1px solid #F3C809;
@@ -23,10 +23,10 @@ ul li {
     /* border-style: double; */
     font-size: 0.9em;
     letter-spacing: 1px;
-    box-shadow: 5px 5px rgba(0,0,0,0.2);
+    box-shadow: 5px 5px rgba(0, 0, 0, 0.2);
 }
 
-ul li:hover {
+.NamesList li:hover {
 
     background-color: pink;
     cursor: pointer

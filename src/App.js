@@ -8,6 +8,10 @@ import babyboy from './img/baby-boy.png';
 import create from './img/create2.png';
 import sword from './img/sword.png';
 import trophy from './img/trophy.png';
+import speechB1 from './img/speech-bubble1.png';
+import speechB2 from './img/speech-bubble2.png';
+import speechB3 from './img/speech-bubble3.png';
+import speechB4 from './img/speech-bubble4.png';
 
 function App() {
 
@@ -34,31 +38,37 @@ function App() {
         <img className='Baby' src={babyboy} />
       </header>
       <section className='Names-pool'>
+        <img src={speechB1} className='SpeechB1 Bubble' />
+        <img src={speechB2} className='SpeechB2 Bubble' />
         <container className='ContentBox'>
           <img src={create} className='CreateIcon BigIcon' />
           <h2>1. Create pool of names</h2>
-          <p>Together with your partner, create a list of names from which you want to choose. Each of you can enter your name suggestions here. To remove a name from the pool just click on it.</p>
+          <p>Sit down WITH YOUR PARTNER and have each of you write down names they like. You can suggest as many names as you like. </p>
           <Names names={namesPool} setNames={setNamesPool} />
-          <p>Cross out dealbreakers. Great! Your pool of names is almost ready. Now each of you can look at it again and cross out few names (can be zero) you are 100% sure you won't name your child. </p>
         </container>
       </section>
       <section className='Comparison' id='duels'>
+        <img src={speechB3} className='SpeechB3 Bubble' />
+        <img src={speechB4} className='SpeechB4 Bubble' />
         <container className='ContentBox'>
           <img src={sword} className='CompareIcon BigIcon' />
-          <h2>2. Duels of names</h2>
-          <p> Complete a series of name compraisons to determine your preference ranking. In this part of the proces you will individually choose which name from the dispalyed pair you'd prefer to give to your child. </p>
-          <p>First, person A performs a series of comparisons in the window below. Then person B performs their own series of comparisons in the second window.</p>
+          <h2>2. Compare names in pairs</h2>
+          <p> Complete a series of name compraisons to determine your preference ranking. Do it INDIVIDUALLY.</p>
+          {/* <p> Complete a series of name compraisons to determine your preference ranking. Do it INDIVIDUALLY.</p>
+          <p>Person A starts in the first window.</p>
+          <p>Then SWAP SEATS and Person B contiunes in the second window.</p> */}
 
 
           <div className='CompareWindow'>
             <h3>Person A</h3>
-            <NamesComparerMS namesPool={namesPool} setRanking={setRanking} />
             <p>Click on the name that you would prefer to give to your child.</p>
+            <NamesComparerMS namesPool={namesPool} setRanking={setRanking} />
+
           </div>
           <div className='CompareWindow'>
             <h3>Person B</h3>
-            <NamesComparerMS namesPool={namesPool} setRanking={setRanking} />
             <p>Click on the name that you would prefer to give to your child.</p>
+            <NamesComparerMS namesPool={namesPool} setRanking={setRanking} />
           </div>
         </container>
       </section>
