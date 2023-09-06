@@ -42,7 +42,7 @@ function App() {
           <p>Cross out dealbreakers. Great! Your pool of names is almost ready. Now each of you can look at it again and cross out few names (can be zero) you are 100% sure you won't name your child. </p>
         </container>
       </section>
-      <section className='Comparison'>
+      <section className='Comparison' id='duels'>
         <container className='ContentBox'>
           <img src={sword} className='CompareIcon BigIcon' />
           <h2>2. Duels of names</h2>

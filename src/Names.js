@@ -1,6 +1,8 @@
 import './Names.css';
 import NamesList from './NamesList';
 
+import ScrollIntoView from 'react-scroll-into-view'
+
 function Names(props) {
 
     let inputRef;
@@ -36,6 +38,11 @@ function Names(props) {
             <input ref={(data) => { inputRef = data }} type='text' placeholder='Enter name' onKeyDown={(event) => { if (inputRef && event.key === 'Enter') { updateNames(inputRef.value) } }} />
             <button onClick={() => { if (inputRef) { updateNames(inputRef.value) } }}>Add name</button>
             <NamesList names={props.names} removeMethod={removeName} />
+            <ScrollIntoView selector="#duels">
+                <button className="DoneBtn">
+                    Done  &#x2713;
+                </button>
+            </ScrollIntoView>
 
         </div>
     )
