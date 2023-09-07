@@ -19,3 +19,8 @@
     background-color: #003399e5;
 
 }
+
+.Results .ErrorMsg {
+    color: red;
+    font-size: 16px;
+}

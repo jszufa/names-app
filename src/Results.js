@@ -8,7 +8,11 @@ import ResultsList from './ResultsList';
 
 function Results(props) {
 
-    const [resultsArray, setResultsArray] = useState([])
+    const [resultsArray, setResultsArray] = useState([]);
+    const [resultsA, setResultsA] = useState([]);
+    const [resultsB, setResultsB] = useState([]);
+
+    const [errorMsg, setErrorMsg] = useState('');
 
     const showResults = () => {
 
@@ -17,13 +21,34 @@ function Results(props) {
             console.log(results);
 
             setResultsArray(results);
+            setErrorMsg('');
+
+            let resultsA = props.ranking[0].map(
+                (data, index) => {
+                    return ({ name: data, score: index })
+                });
+
+            let resultsB = props.ranking[1].map(
+                (data, index) => {
+                    return ({ name: data, score: index })
+                });
+
+
+            setResultsA(resultsA);
+            setResultsB(resultsB);
+        }
+        else {
+            setErrorMsg('To see results you must complete ALL comparisons.')
         }
     }
+
+    console.log(props.ranking);
 
     return (
         <div className='Results'>
             <button onClick={() => showResults()}>Show results</button>
-            <ResultsList resultsArray={resultsArray} />
+            <p className='ErrorMsg' >{errorMsg}</p>
+            <ResultsList resultsArray={resultsArray} resultsA={resultsA} resultsB={resultsB}/>
         </div>
     )
 }

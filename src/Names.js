@@ -1,7 +1,7 @@
 import './Names.css';
 import NamesList from './NamesList';
 
-import ScrollIntoView from 'react-scroll-into-view'
+import ScrollIntoView from 'react-scroll-into-view';
 
 function Names(props) {
 

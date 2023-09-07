@@ -1,5 +1,6 @@
 import './App.css';
 import { useEffect, useState } from 'react';
+import ScrollIntoView from 'react-scroll-into-view';
 
 import NamesComparerMS from './NamesComparerMS';
 import Names from './Names';
@@ -70,16 +71,21 @@ function App() {
             <p>Click on the name that you would prefer to give to your child.</p>
             <NamesComparerMS namesPool={namesPool} setRanking={setRanking} />
           </div>
+          <ScrollIntoView selector="#results">
+            <button className="ResultsBtn">
+              Done  &#x2713;
+            </button>
+          </ScrollIntoView>
         </container>
       </section>
-      <section className='ResultsSection'>
+      <section className='ResultsSection' id='results'>
         <container className='ContentBox'>
           <img src={trophy} className='TrophyIcon BigIcon' />
           <h2>3. See your top names</h2>
-          <p> The lower the score the better!</p>
-          <p> If, for example, "Catlyn" got 3 points, it means that the name was in 3rd place for the person who likes the name less. In this type of decision there is usually one side that is less satisfied. This ranking maximizes the satisfaction of this person. </p>
+          <p>See the best names TRADE-OFF suggestion for your relationship.</p>
+          <Results ranking={ranking} />
         </container>
-        <Results ranking={ranking} />
+        
       </section>
       <footer className='Footer'>
         <p>Created by Jerzy Szufa</p>

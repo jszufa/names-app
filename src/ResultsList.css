@@ -32,3 +32,39 @@
 .ResultsList table tbody> :nth-child(3) {
     background-color: rgba(0, 128, 0, 0.247);
 }
+
+.ResultsList .ResultsMsg .TopNames {
+    list-style: none;
+    padding-left: 0;
+    display: flex;
+    flex-wrap: wrap;
+    /* border: 3px solid #14b336ea; */
+    border-radius: 20px;
+    min-height: 50px;
+    padding-top: 20px;
+    justify-content: center;
+}
+
+.ResultsList .ResultsMsg .WinnerName {
+    height: 60px;
+    font-size: 30px;
+    background-color: #19E144;
+    letter-spacing: 1px;
+    box-shadow: 5px 5px rgba(0, 0, 0, 0.2);
+}
+
+.ResultsList .ResultsMsg .TopNames li {
+    background-color: #19E144;
+    color: white;
+    font-family: 'Nunito Sans', sans-serif;
+    font-weight: 500;
+    padding: 8px 16px;
+    margin: 0px 10px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    /* border-style: double; */
+    font-size: 1.5em;
+    letter-spacing: 1px;
+    box-shadow: 5px 5px rgba(0, 0, 0, 0.2);
+    
+}
