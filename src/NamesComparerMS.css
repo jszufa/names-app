@@ -24,7 +24,8 @@
     /* flex-basis: 30%; */
     min-width: 30%;
     max-width: 400px;
-    box-shadow: 10px 10px rgba(0,0,0,0.2);;
+    box-shadow: 10px 10px rgba(0,0,0,0.2);
+    max-width: 90%;
 }
 
 .NamesComparer .NameButton:hover {
@@ -37,4 +38,13 @@
     opacity: 0.7;
     height: 20px;
     margin: 0 40px;
+}
+
+@media (max-width:520px) {
+
+    .NamesComparer .NameButton {
+        font-size: 16px;
+        padding: 15px 30px;
+        font-weight: 400;
+    }
 }

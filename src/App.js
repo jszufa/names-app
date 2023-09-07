@@ -35,6 +35,7 @@ function App() {
   return (
     <div className='App'>
       <header className='Header'>
+
         <h1>Choose together</h1>
         <p>Choose a name for your baby in a very... peaceful way</p>
         <img className='Baby' src={babyboy} />
@@ -52,13 +53,13 @@ function App() {
       <section className='Comparison' id='duels'>
         <img src={speechB3} className='SpeechB3 Bubble' />
         <img src={speechB4} className='SpeechB4 Bubble' />
-        
+
         <container className='ContentBox'>
           <img src={sword} className='CompareIcon BigIcon' />
           <h2>2. Compare names in pairs</h2>
           <p> Complete a series of name compraisons to determine your preference ranking. Do it INDIVIDUALLY.</p>
           {/* <img src={parent} className='ComparePhoto' /> */}
-          
+
 
           <div className='CompareWindow'>
             <h3>Person A</h3>

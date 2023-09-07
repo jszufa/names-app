@@ -49,3 +49,9 @@
     background-color: #94CB79;
     opacity: 1;
 }
+
+@media (max-width:520px) {
+.names input {
+    margin-bottom: 15px;
+}
+}

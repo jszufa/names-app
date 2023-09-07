@@ -16,7 +16,7 @@
 }
 
 .App h2 {
-  margin-top: 40px;
+  margin-top: 25px;
   color: #F3C809;
   text-transform: uppercase;
   font-weight: 400;
@@ -43,6 +43,7 @@
   text-align: left;
   padding-top: 30px;
   padding-left: 30px;
+  position: relative;
 }
 
 .App .Header p {
@@ -89,26 +90,24 @@
 }
 
 .App .Names-pool .SpeechB1 {
-  left:30px;
+  left: 30px;
   top: 0;
 }
 
 .App .Names-pool .SpeechB2 {
-  right:30px;
+  right: 30px;
   top: 0px;
 }
 
 .App .Comparison .SpeechB3 {
-  left:30px;
+  left: 30px;
   top: 20px;
-  height: 200px;
 }
 
 .App .Comparison .SpeechB4 {
 
-  right:30px;
+  right: 30px;
   top: 20px;
-  height: 200px;
 }
 
 /* SECTION 2. DUELS OF NAMES */
@@ -195,4 +194,47 @@
   }
 }
 
-@media (max-width:768px) {}
+@media (max-width:768px) {
+  .App .Header h1 {
+    width: 70%;
+  }
+  .App .Header p {
+    font-size: 20px;
+    width: 90%;
+  }
+
+  .App .Bubble {
+    height: 140px;
+  }
+
+
+
+}
+
+@media (max-width:520px) {
+  .App .Header h1 {
+    width: 70%;
+    font-size: 50px;
+  }
+
+  .App .Header p {
+    font-size: 20px;
+    width: 60%;
+  }
+
+  .App .Header .Baby {
+    top: auto;
+    bottom: 25px;
+    right: 20px;
+    width: 90px;
+  }
+
+  .App .Bubble {
+    display: none;
+  }
+
+  .App .ContentBox {
+    width: 87%;
+  }
+
+}
