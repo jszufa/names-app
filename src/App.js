@@ -10,9 +10,10 @@ import create from './img/create2.png';
 import sword from './img/sword.png';
 import trophy from './img/trophy.png';
 import speechB1 from './img/speech-bubble1.png';
-import speechB2 from './img/speech-bubble2.png';
+import speechB2 from './img/speech-bubble22.png';
 import speechB3 from './img/speech-bubble3.png';
 import speechB4 from './img/speech-bubble4.png';
+/* import parent from './img/parent1.jpg'; */
 
 function App() {
 
@@ -39,8 +40,8 @@ function App() {
         <img className='Baby' src={babyboy} />
       </header>
       <section className='Names-pool'>
-        {/* <img src={speechB1} className='SpeechB1 Bubble' />
-        <img src={speechB2} className='SpeechB2 Bubble' /> */}
+        <img src={speechB1} className='SpeechB1 Bubble' />
+        <img src={speechB2} className='SpeechB2 Bubble' />
         <container className='ContentBox'>
           <img src={create} className='CreateIcon BigIcon' />
           <h2>1. Create pool of names</h2>
@@ -49,16 +50,15 @@ function App() {
         </container>
       </section>
       <section className='Comparison' id='duels'>
-        {/* <img src={speechB3} className='SpeechB3 Bubble' />
-        <img src={speechB4} className='SpeechB4 Bubble' /> */}
+        <img src={speechB3} className='SpeechB3 Bubble' />
+        <img src={speechB4} className='SpeechB4 Bubble' />
+        
         <container className='ContentBox'>
           <img src={sword} className='CompareIcon BigIcon' />
           <h2>2. Compare names in pairs</h2>
           <p> Complete a series of name compraisons to determine your preference ranking. Do it INDIVIDUALLY.</p>
-          {/* <p> Complete a series of name compraisons to determine your preference ranking. Do it INDIVIDUALLY.</p>
-          <p>Person A starts in the first window.</p>
-          <p>Then SWAP SEATS and Person B contiunes in the second window.</p> */}
-
+          {/* <img src={parent} className='ComparePhoto' /> */}
+          
 
           <div className='CompareWindow'>
             <h3>Person A</h3>
@@ -85,7 +85,7 @@ function App() {
           <p>See the best names TRADE-OFF suggestion for your relationship.</p>
           <Results ranking={ranking} />
         </container>
-        
+
       </section>
       <footer className='Footer'>
         <p>Created by Jerzy Szufa</p>

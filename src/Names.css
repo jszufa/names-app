@@ -47,4 +47,5 @@
 
 .names .DoneBtn:hover {
     background-color: #94CB79;
+    opacity: 1;
 }

@@ -33,16 +33,7 @@
   font-size: 20px;
 }
 
-.App .CompareWindow {
-  margin-bottom: 60px;
-  margin-top: 100px;
-}
 
-.App .CompareWindow h3 {
-  color: white;
-  text-align: center;
-  text-transform: uppercase;
-}
 
 .App .Header {
   background-color: #79BDCB;
@@ -93,7 +84,7 @@
 
 .App .Bubble {
   position: absolute;
-  height: 250px;
+  height: 160px;
   opacity: 0.8;
 }
 
@@ -104,19 +95,19 @@
 
 .App .Names-pool .SpeechB2 {
   right:30px;
-  top: 20px;
+  top: 0px;
 }
 
 .App .Comparison .SpeechB3 {
   left:30px;
-  top: 350px;
+  top: 20px;
   height: 200px;
 }
 
 .App .Comparison .SpeechB4 {
 
   right:30px;
-  top: 740px;
+  top: 20px;
   height: 200px;
 }
 
@@ -158,6 +149,24 @@
 .App .Comparison .ResultsBtn:hover {
   background-color: #94CB79;
 }
+
+/* .App .Comparison .ComparePhoto {
+  height: 30vh;
+  border-radius: 10px;
+  opacity: 1;
+} */
+
+.App .CompareWindow {
+  margin-bottom: 60px;
+  margin-top: 60px;
+}
+
+.App .CompareWindow h3 {
+  color: white;
+  text-align: center;
+  text-transform: uppercase;
+}
+
 
 
 /* SECTION 3. SEE YOUR TOP NAMES*/
