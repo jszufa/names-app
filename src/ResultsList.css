@@ -48,13 +48,14 @@
 .ResultsList .ResultsMsg .WinnerName {
     height: 60px;
     font-size: 30px;
-    background-color: #19E144;
+    background-color: #94CB79;
     letter-spacing: 1px;
     box-shadow: 5px 5px rgba(0, 0, 0, 0.2);
+    font-family: 'Sniglet', cursive;
 }
 
 .ResultsList .ResultsMsg .TopNames li {
-    background-color: #19E144;
+    background-color: #94CB79;
     color: white;
     font-family: 'Nunito Sans', sans-serif;
     font-weight: 500;
@@ -66,5 +67,10 @@
     font-size: 1.5em;
     letter-spacing: 1px;
     box-shadow: 5px 5px rgba(0, 0, 0, 0.2);
+    font-family: 'Sniglet', cursive;
     
+}
+
+.ResultsList .ResultsMsg .ResultsPhoto {
+    height: 200px;
 }

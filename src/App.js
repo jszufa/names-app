@@ -35,12 +35,12 @@ function App() {
     <div className='App'>
       <header className='Header'>
         <h1>Choose together</h1>
-        <p>Choose a name for your baby without a fight</p>
+        <p>Choose a name for your baby in a very... peaceful way</p>
         <img className='Baby' src={babyboy} />
       </header>
       <section className='Names-pool'>
-        <img src={speechB1} className='SpeechB1 Bubble' />
-        <img src={speechB2} className='SpeechB2 Bubble' />
+        {/* <img src={speechB1} className='SpeechB1 Bubble' />
+        <img src={speechB2} className='SpeechB2 Bubble' /> */}
         <container className='ContentBox'>
           <img src={create} className='CreateIcon BigIcon' />
           <h2>1. Create pool of names</h2>
@@ -49,8 +49,8 @@ function App() {
         </container>
       </section>
       <section className='Comparison' id='duels'>
-        <img src={speechB3} className='SpeechB3 Bubble' />
-        <img src={speechB4} className='SpeechB4 Bubble' />
+        {/* <img src={speechB3} className='SpeechB3 Bubble' />
+        <img src={speechB4} className='SpeechB4 Bubble' /> */}
         <container className='ContentBox'>
           <img src={sword} className='CompareIcon BigIcon' />
           <h2>2. Compare names in pairs</h2>

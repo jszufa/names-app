@@ -25,12 +25,12 @@ function Results(props) {
 
             let resultsA = props.ranking[0].map(
                 (data, index) => {
-                    return ({ name: data, score: index })
+                    return ({ name: data, score: index + 1 })
                 });
 
             let resultsB = props.ranking[1].map(
                 (data, index) => {
-                    return ({ name: data, score: index })
+                    return ({ name: data, score: index + 1 })
                 });
 
 

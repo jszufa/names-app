@@ -1,5 +1,7 @@
 import './ResultsList.css';
 
+import baby from './img/baby-results.jpg';
+
 function ResultsList(props) {
 
     //zbudować sobie strukturę html, tak żeby to ładnie wyglądało
@@ -42,7 +44,9 @@ function ResultsList(props) {
     return (
         <div className='ResultsList'>
             {(resultsList.length > 0) &&
+                <div className='ShowResultsHolder'>
                 <div className='ResultsMsg'>
+                    <img src={baby} className='ResultsPhoto'></img>
                     <p>And the winner is...</p>
                     <button className='WinnerName'>{props.resultsArray[0].name}!</button>
                     <p> You may also consider choosing...</p>
@@ -51,11 +55,11 @@ function ResultsList(props) {
                         <li>{props.resultsArray[2].name}</li>
                     </ul>
                     <p>Some theory for geeks:</p>
-                    <p>"{props.resultsArray[0].name}" scored <b>{props.resultsArray[0].score} </b> wchich means: "person who likes this name <b>less</b> ranked it at postion {props.resultsArray[0].score}". The second person may like the name "{props.resultsArray[0].name}" even more, or at the same level.</p>
-                    <p>So in other words, every other name choice would presumably make one of you more unhappy.</p>
-                    <p>See the rankings overview below.</p>
+                    <p>"{props.resultsArray[0].name}" scored <b>{props.resultsArray[0].score} </b> wchich means: "person who likes this name <b>less</b> ranked it at postion {props.resultsArray[0].score}". The second person may like the name "{props.resultsArray[0].name}" even more or at the same level.</p>
+                    <p>So, in other words, one of you is probably less happy with the choice, but still, this may be the best deal for you as a pair. If you would choose a name that scored for example 30, it would probably make the "less-liking" person really dissatisfied, even if for the second person this name would be a first choice. </p>
+                    <p>See the rankings overview below for more details.</p>
                 </div>
-            }
+            
             {/* <p>And the winner is... </p> */}
             {/* <h2>{winnerName}</h2>
             <p> 
@@ -97,6 +101,7 @@ function ResultsList(props) {
                     {resultsListPersonB}
                 </tbody>
             </table>
+            </div>}
         </div>
     )
 }
