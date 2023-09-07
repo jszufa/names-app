@@ -1,17 +1,22 @@
 {
   "files": {
-    "main.css": "/names-app/static/css/main.1b6316cd.css",
-    "main.js": "/names-app/static/js/main.e817f4df.js",
+    "main.css": "/names-app/static/css/main.2fddb657.css",
+    "main.js": "/names-app/static/js/main.e24de0e6.js",
     "static/js/787.e5290732.chunk.js": "/names-app/static/js/787.e5290732.chunk.js",
+    "static/media/baby-results.jpg": "/names-app/static/media/baby-results.df8c9d683e69a88e6b7c.jpg",
+    "static/media/speech-bubble1.png": "/names-app/static/media/speech-bubble1.a5b8ceab46b96accde75.png",
     "static/media/baby-boy.png": "/names-app/static/media/baby-boy.f5b9123513ab0c79c43a.png",
+    "static/media/speech-bubble3.png": "/names-app/static/media/speech-bubble3.14ecbc70817eb2f9ed9c.png",
     "static/media/sword.png": "/names-app/static/media/sword.df7d8c3a52cd19e3f8eb.png",
+    "static/media/speech-bubble2.png": "/names-app/static/media/speech-bubble2.4dd367dbd6404a490e00.png",
+    "static/media/speech-bubble4.png": "/names-app/static/media/speech-bubble4.4b1ef6172f09d3713c5d.png",
     "index.html": "/names-app/index.html",
-    "main.1b6316cd.css.map": "/names-app/static/css/main.1b6316cd.css.map",
-    "main.e817f4df.js.map": "/names-app/static/js/main.e817f4df.js.map",
+    "main.2fddb657.css.map": "/names-app/static/css/main.2fddb657.css.map",
+    "main.e24de0e6.js.map": "/names-app/static/js/main.e24de0e6.js.map",
     "787.e5290732.chunk.js.map": "/names-app/static/js/787.e5290732.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.1b6316cd.css",
-    "static/js/main.e817f4df.js"
+    "static/css/main.2fddb657.css",
+    "static/js/main.e24de0e6.js"
   ]
 }
