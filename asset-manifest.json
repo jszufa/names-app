@@ -1,9 +1,9 @@
 {
   "files": {
-    "main.css": "/names-app/static/css/main.6c8784b8.css",
-    "main.js": "/names-app/static/js/main.da9eb1b9.js",
+    "main.css": "/names-app/static/css/main.551bb4f5.css",
+    "main.js": "/names-app/static/js/main.131c6d1f.js",
     "static/js/787.e5290732.chunk.js": "/names-app/static/js/787.e5290732.chunk.js",
-    "static/media/baby-results.jpg": "/names-app/static/media/baby-results.df8c9d683e69a88e6b7c.jpg",
+    "static/media/baby-results.jpg": "/names-app/static/media/baby-results.cad55ec0b9ee33277c65.jpg",
     "static/media/speech-bubble1.png": "/names-app/static/media/speech-bubble1.81de3afb7acce34a7e16.png",
     "static/media/baby-boy.png": "/names-app/static/media/baby-boy.f5b9123513ab0c79c43a.png",
     "static/media/speech-bubble22.png": "/names-app/static/media/speech-bubble22.5ec762d3c139f119a656.png",
@@ -11,12 +11,12 @@
     "static/media/sword.png": "/names-app/static/media/sword.df7d8c3a52cd19e3f8eb.png",
     "static/media/speech-bubble4.png": "/names-app/static/media/speech-bubble4.1c128394d1a0b693b50e.png",
     "index.html": "/names-app/index.html",
-    "main.6c8784b8.css.map": "/names-app/static/css/main.6c8784b8.css.map",
-    "main.da9eb1b9.js.map": "/names-app/static/js/main.da9eb1b9.js.map",
+    "main.551bb4f5.css.map": "/names-app/static/css/main.551bb4f5.css.map",
+    "main.131c6d1f.js.map": "/names-app/static/js/main.131c6d1f.js.map",
     "787.e5290732.chunk.js.map": "/names-app/static/js/787.e5290732.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.6c8784b8.css",
-    "static/js/main.da9eb1b9.js"
+    "static/css/main.551bb4f5.css",
+    "static/js/main.131c6d1f.js"
   ]
 }
