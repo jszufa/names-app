@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import './NamesComparerMS.css';
 
+import ProgressBar from "@ramonak/react-progress-bar";
 import swordB from "./img/sword_blue.png";
 
 
@@ -167,6 +168,7 @@ function NamesComparerMS(props) {
         <img src={swordB} className='Swords' />}
       {currentNames[1] &&
         <button className='NameButton' onClick={() => stepByStepMergeSort(currentNames[1])}>{currentNames[1]}</button>}
+      <ProgressBar completed={Math.log2(size)*100/Math.ceil(Math.log2(namesArray.length))} className='Wrapper' bgColor='#94CB79' isLabelVisible={false} height='6px'/>
     </div>
   );
 }

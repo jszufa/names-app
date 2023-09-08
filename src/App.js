@@ -46,7 +46,7 @@ function App() {
         <container className='ContentBox'>
           <img src={create} className='CreateIcon BigIcon' />
           <h2>1. Create pool of names</h2>
-          <p>Sit down WITH YOUR PARTNER and have each of you write down names they like. You can suggest as many names as you like. </p>
+          <p>Sit down WITH YOUR PARTNER and have each of you write down names they like. You can suggest as many names as you like with the minimum number of 3 names. </p>
           <Names names={namesPool} setNames={setNamesPool} />
         </container>
       </section>
@@ -57,7 +57,7 @@ function App() {
         <container className='ContentBox'>
           <img src={sword} className='CompareIcon BigIcon' />
           <h2>2. Compare names in pairs</h2>
-          <p> Complete a series of name compraisons to determine your preference ranking. Do it INDIVIDUALLY.</p>
+          <p> Complete name compraisons to determine your preference ranking. Do it INDIVIDUALLY.</p>
           {/* <img src={parent} className='ComparePhoto' /> */}
 
 
