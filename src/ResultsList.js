@@ -1,11 +1,7 @@
 import './ResultsList.css';
-
 import baby from './img/baby-results.jpg';
 
 function ResultsList(props) {
-
-    //zbudować sobie strukturę html, tak żeby to ładnie wyglądało
-    //PRACOWAĆ TUTAJ
 
     let resultsList = props.resultsArray.map(
         (data) => {
@@ -45,6 +41,7 @@ function ResultsList(props) {
         <div className='ResultsList'>
             {(resultsList.length > 0) &&
                 <div className='ShowResultsHolder'>
+                
                 <div className='ResultsMsg'>
                     <img src={baby} className='ResultsPhoto'></img>
                     <p>And the winner is...</p>
@@ -59,11 +56,6 @@ function ResultsList(props) {
                     <p>So, in other words, one of you is probably less happy with the choice, but still, this may be the best deal for you as a pair. If you would choose a name that scored for example 30, it would probably make the "less-liking" person really dissatisfied, even if for the second person this name would be a first choice. </p>
                     <p>See the rankings overview below for more details.</p>
                 </div>
-            
-            {/* <p>And the winner is... </p> */}
-            {/* <h2>{winnerName}</h2>
-            <p> 
-            {winnerName} scored {winnerScore} points, so it means that the name was in {winnerScore}. place for the person who likes the name less. In this type of decision there is usually one side that is less satisfied. This ranking maximizes the satisfaction of this person. </p> */}
 
             <p><b>Complete ranking</b></p>
             <table>
@@ -105,6 +97,5 @@ function ResultsList(props) {
         </div>
     )
 }
-
 
 export default ResultsList;

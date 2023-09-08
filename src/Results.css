@@ -14,12 +14,10 @@
     text-transform: uppercase;
     font-size: 1.1em;
     font-family: 'Nunito Sans', sans-serif;
-
 }
 
 .Results button:hover {
     background-color: #003399e5;
-
 }
 
 .Results .ErrorMsg {

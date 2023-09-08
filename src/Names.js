@@ -1,6 +1,5 @@
 import './Names.css';
 import NamesList from './NamesList';
-
 import ScrollIntoView from 'react-scroll-into-view';
 
 function Names(props) {
@@ -10,11 +9,9 @@ function Names(props) {
     const updateNames = (text) => {
 
         let index = Date.now();
-
         let updatedNames = props.names.concat({ id: index, name: text });
 
         sessionStorage.setItem('names', JSON.stringify(updatedNames));
-
         props.setNames(updatedNames);
 
         if (inputRef) {
@@ -25,12 +22,10 @@ function Names(props) {
     const removeName = (nameId) => {
 
         sessionStorage.setItem('names', JSON.stringify(props.names.filter(name => name.id !== nameId)));
-
         props.setNames(
             props.names.filter(name => name.id !== nameId)
         )
     }
-
 
     return (
         <div className='names'>

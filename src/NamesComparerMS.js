@@ -1,14 +1,11 @@
 import { useState, useEffect } from 'react';
 import './NamesComparerMS.css';
+import ProgressBar from '@ramonak/react-progress-bar';
+import swordB from './img/sword_blue.png';
 
-import ProgressBar from "@ramonak/react-progress-bar";
-import swordB from "./img/sword_blue.png";
-
-
-// oszczędność algorytmu fajnie widać na 3 elementach
-// low - index pierwszego wyrazu tablicy
-// mid - index środkowego wyrazu tablicy
-// high - index ostatniego wyrazu tablicy
+// low - index of the first compared element
+// mid - index of the middle element
+// high - index of the last element
 
 function NamesComparerMS(props) {
 
@@ -25,7 +22,6 @@ function NamesComparerMS(props) {
 
   const [sortedArr, setSortedArr] = useState([]);
   const [finnishingFlag, setFinnishingFlag] = useState(false);
-
 
 
   useEffect(() => { finishingMove() }, [finnishingFlag]);
@@ -59,7 +55,6 @@ function NamesComparerMS(props) {
     newNamesArray.sort(function () {
       return Math.random() - 0.5;
     });
-    console.log(newNamesArray);
     setNamesArray(newNamesArray);
     setCurrentNames(newNamesArray);
   }
@@ -78,28 +73,26 @@ function NamesComparerMS(props) {
     let length = namesArray.length;
 
     if (low >= length - size && length > 0) {
-      //przekazanie temp do inputArray
+      //passing temp to inputArray
       setSize(size * 2);
       setLow(() => 0);
 
       var sortedCompleteArray = JSON.parse(JSON.stringify(newTemp));
-      //dodaję posortowany ogon tablicy
+      //adding sorted tail of the array
       let sortedTail = namesArray.slice(sortedCompleteArray.length);
-      //console.log(sortedTail);
       sortedCompleteArray.push(...sortedTail);
 
       setNamesArray(sortedCompleteArray);
       setTemp(() => []);
 
-      console.log(`Aktualny ranking imion to: ${sortedCompleteArray}`);
+      /* console.log(`The current name ranking is: ${sortedCompleteArray}`) */;
     }
   }
 
-  //MERG SORT INITIALIZED BY USER
+  //MERGE SORT INITIALIZED BY USER
   const stepByStepMergeSort = (winnerName) => {
     if (namesArray.length === 0) {
       initializeComparison();
-      console.log('wywołano inicjalizację')
       return;
     }
 
@@ -128,7 +121,6 @@ function NamesComparerMS(props) {
           else (
             setCurrentNames([left[0], right[0]])
           )
-
         }
         else if (right[0] === winnerName) {
 
@@ -154,21 +146,18 @@ function NamesComparerMS(props) {
       }
     }
     else {
-      console.log('The end of comparison, Master');
-      console.log(namesArray);
+      /* console.log('The end of comparison');*/
     }
   }
 
-
-
   return (
-    <div className="NamesComparer">
+    <div className='NamesComparer'>
       <button className='NameButton' onClick={() => stepByStepMergeSort(currentNames[0])}>{currentNames[0]}</button>
       {currentNames[1] &&
         <img src={swordB} className='Swords' />}
       {currentNames[1] &&
         <button className='NameButton' onClick={() => stepByStepMergeSort(currentNames[1])}>{currentNames[1]}</button>}
-      <ProgressBar completed={Math.log2(size)*100/Math.ceil(Math.log2(namesArray.length))} className='Wrapper' bgColor='#94CB79' isLabelVisible={false} height='6px'/>
+      <ProgressBar completed={Math.log2(size) * 100 / Math.ceil(Math.log2(namesArray.length))} className='Wrapper' bgColor='#94CB79' isLabelVisible={false} height='6px' />
     </div>
   );
 }

@@ -1,3 +1,5 @@
+/* GENERAL */
+
 .App {
   text-align: center;
   font-family: 'Sniglet', cursive;
@@ -20,7 +22,6 @@
   color: #F3C809;
   text-transform: uppercase;
   font-weight: 400;
-  /* font-size: 25px; */
 }
 
 .App h3 {
@@ -33,7 +34,36 @@
   font-size: 20px;
 }
 
+/* SPEECH BUBBLES */
 
+.App .Bubble {
+  position: absolute;
+  height: 160px;
+  opacity: 0.8;
+}
+
+.App .Names-pool .SpeechB1 {
+  left: 30px;
+  top: 0;
+}
+
+.App .Names-pool .SpeechB2 {
+  right: 30px;
+  top: 0px;
+}
+
+.App .Comparison .SpeechB3 {
+  left: 30px;
+  top: 20px;
+}
+
+.App .Comparison .SpeechB4 {
+
+  right: 30px;
+  top: 20px;
+}
+
+/* HEADER */
 
 .App .Header {
   background-color: #79BDCB;
@@ -81,34 +111,6 @@
   height: 100px;
 }
 
-/* SPEECH BUBBLES */
-
-.App .Bubble {
-  position: absolute;
-  height: 160px;
-  opacity: 0.8;
-}
-
-.App .Names-pool .SpeechB1 {
-  left: 30px;
-  top: 0;
-}
-
-.App .Names-pool .SpeechB2 {
-  right: 30px;
-  top: 0px;
-}
-
-.App .Comparison .SpeechB3 {
-  left: 30px;
-  top: 20px;
-}
-
-.App .Comparison .SpeechB4 {
-
-  right: 30px;
-  top: 20px;
-}
 
 /* SECTION 2. DUELS OF NAMES */
 
@@ -149,12 +151,6 @@
   background-color: #94CB79;
 }
 
-/* .App .Comparison .ComparePhoto {
-  height: 30vh;
-  border-radius: 10px;
-  opacity: 1;
-} */
-
 .App .CompareWindow {
   margin-bottom: 60px;
   margin-top: 60px;
@@ -166,12 +162,6 @@
   text-transform: uppercase;
 }
 
-
-
-/* SECTION 3. SEE YOUR TOP NAMES*/
-/* .App .ResultsSection .ContentBox p {
-
-} */
 
 /* FOOTER */
 .App .Footer {
@@ -186,6 +176,8 @@
   line-height: 60px;
 }
 
+
+/* MEDIA RULES */
 
 
 @media (min-width:992px) {
@@ -206,9 +198,6 @@
   .App .Bubble {
     height: 140px;
   }
-
-
-
 }
 
 @media (max-width:520px) {
@@ -236,5 +225,4 @@
   .App .ContentBox {
     width: 87%;
   }
-
 }

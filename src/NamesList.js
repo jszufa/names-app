@@ -7,7 +7,7 @@ function NamesList(props) {
     });
 
     return (
-        <ul id="list" className='NamesList'>
+        <ul id='list' className='NamesList'>
             {namesArrayElements}
         </ul>
     );

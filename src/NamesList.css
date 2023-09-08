@@ -11,8 +11,6 @@
 }
 
 .NamesList li {
-    /* background-color: #375BF8; */
-    /* color: white; */
     border: 1px solid #F3C809;
     font-family: 'Nunito Sans', sans-serif;
     font-weight: 500;
@@ -21,7 +19,6 @@
     margin: 0px 10px;
     margin-bottom: 20px;
     border-radius: 10px;
-    /* border-style: double; */
     font-size: 0.9em;
     letter-spacing: 1px;
     box-shadow: 5px 5px rgba(0, 0, 0, 0.2);
@@ -39,9 +36,6 @@
 }
 
 .NamesList li:hover {
-
     background-color: pink;
     cursor: pointer
 }
-
-/* żółty #f3c809 */
