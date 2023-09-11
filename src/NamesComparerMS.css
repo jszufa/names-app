@@ -26,10 +26,12 @@
     max-width: 90%;
 }
 
-.NamesComparer .NameButton:hover {
-    background-color: #94CB79;
-    border: none;
-    color: white;
+@media (pointer: fine) {
+    .NamesComparer .NameButton:hover {
+        background-color: #94CB79;
+        border: none;
+        color: white;
+    }
 }
 
 .NamesComparer .InactiveBtn {
@@ -47,7 +49,7 @@
 }
 
 .NamesComparer .Swords {
-    opacity: 0.7;
+    opacity: 0.8;
     height: 20px;
     margin: 0 40px;
 }
@@ -64,5 +66,9 @@
         font-size: 16px;
         padding: 15px 30px;
         font-weight: 400;
+    }
+
+    .NamesComparer .Swords {
+        margin: 0 20px;
     }
 }
