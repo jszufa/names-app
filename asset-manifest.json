@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/names-app/static/css/main.7853f66c.css",
+    "main.css": "/names-app/static/css/main.0ffe6725.css",
     "main.js": "/names-app/static/js/main.d0138ff4.js",
     "static/js/787.e5290732.chunk.js": "/names-app/static/js/787.e5290732.chunk.js",
     "static/media/baby-results.jpg": "/names-app/static/media/baby-results.cad55ec0b9ee33277c65.jpg",
@@ -12,12 +12,12 @@
     "static/media/speech-bubble4.png": "/names-app/static/media/speech-bubble4.1c128394d1a0b693b50e.png",
     "static/media/sword_blue.png": "/names-app/static/media/sword_blue.fb5bfc4c9e3445f67b23.png",
     "index.html": "/names-app/index.html",
-    "main.7853f66c.css.map": "/names-app/static/css/main.7853f66c.css.map",
+    "main.0ffe6725.css.map": "/names-app/static/css/main.0ffe6725.css.map",
     "main.d0138ff4.js.map": "/names-app/static/js/main.d0138ff4.js.map",
     "787.e5290732.chunk.js.map": "/names-app/static/js/787.e5290732.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.7853f66c.css",
+    "static/css/main.0ffe6725.css",
     "static/js/main.d0138ff4.js"
   ]
 }
