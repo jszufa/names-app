@@ -7,7 +7,7 @@
 }
 
 .ResultsList table thead tr th {
-    padding: 20px 60px;
+    padding: 20px 30px;
     font-size: 1.5em;
     font-weight: 400;
     text-transform: uppercase;
@@ -48,6 +48,9 @@
     letter-spacing: 1px;
     box-shadow: 5px 5px rgba(0, 0, 0, 0.2);
     font-family: 'Sniglet', cursive;
+    color: white;
+    border: none;
+    border-radius: 10px;
 }
 
 .ResultsList .ResultsMsg .TopNames li {
@@ -67,4 +70,5 @@
 
 .ResultsList .ResultsMsg .ResultsPhoto {
     height: 200px;
+    border-radius: 5px;
 }

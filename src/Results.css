@@ -1,26 +1,39 @@
+.App .ResultsSection {
+    padding-top: 0px;
+}
+
+
 .Results {
     margin: 40px 0px;
 }
 
-.Results button {
-    margin-left: 10px;
+.ButtonBox {
+    background-color: #79BDCB;
+    ;
+    margin-bottom: 100px;
+    padding-bottom: 40px;
+}
+
+.ResultsSection .ButtonBox button {
+    text-decoration: none;
     height: 40px;
-    background-color: #14b336ea;
+    background-color: #e6bd06;
     color: white;
     border: none;
     border-radius: 5px;
-    padding: 10px 20px;
+    padding: 0px 10px;
     cursor: pointer;
-    text-transform: uppercase;
-    font-size: 1.1em;
     font-family: 'Nunito Sans', sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 16px;
 }
 
-.Results button:hover {
-    background-color: #003399e5;
+.ResultsSection .ButtonBox button:hover {
+    background-color: #94CB79;
 }
 
-.Results .ErrorMsg {
-    color: red;
+.ResultsSection .ErrorMsg {
+    color: rgb(172, 26, 26);
     font-size: 16px;
 }

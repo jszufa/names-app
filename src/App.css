@@ -117,6 +117,7 @@
 .App .Comparison {
   background-color: #79BDCB;
   color: white;
+  padding-bottom: 0;
 }
 
 .App .Comparison .ContentBox h2 {
@@ -129,26 +130,7 @@
 
 .App .Comparison .ContentBox .CompareWindow p {
   font-style: italic;
-  font-size: 14px;
-}
-
-.App .Comparison .ResultsBtn {
-  text-decoration: none;
-  height: 40px;
-  background-color: #e6bd06;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  padding: 0px 10px;
-  cursor: pointer;
-  font-family: 'Nunito Sans', sans-serif;
-  font-weight: 700;
-  text-transform: uppercase;
   font-size: 16px;
-}
-
-.App .Comparison .ResultsBtn:hover {
-  background-color: #94CB79;
 }
 
 .App .CompareWindow {
@@ -167,15 +149,42 @@
 .App .Footer {
   background-color: #79BDCB;
   color: white;
-  height: 60px;
+  /* text-align: left; */
+  padding-top: 20px;
+  /* padding-left: 1%; */
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+
 }
 
 .App .Footer p {
   color: white;
   margin: auto;
-  line-height: 60px;
+  padding-bottom: 10px;
+  flex-basis: 97%;
 }
 
+
+.App .Footer a {
+  font-size: 10px;
+  color: white;
+  padding: 5px 5px;
+  padding-bottom: 0;
+  text-decoration: none;
+  flex-basis: 14%;
+}
+
+.App .Footer .PortfolioLink {
+  text-decoration: none;
+  color: white;
+  font-size: 20px;
+}
+
+.App .Footer .ContactP{
+  display: inline-block;
+  font-size: 14px;
+}
 
 /* MEDIA RULES */
 
@@ -224,5 +233,9 @@
 
   .App .ContentBox {
     width: 87%;
+  }
+
+  .App .Footer a {
+    flex-basis: 23%;
   }
 }

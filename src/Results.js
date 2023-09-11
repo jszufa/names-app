@@ -1,7 +1,8 @@
-import { useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import './Results.css';
 import { compareRankings } from './helpers/compareRankingsHelper';
 import ResultsList from './ResultsList';
+import trophy from './img/trophy.png';
 
 function Results(props) {
 
@@ -9,6 +10,16 @@ function Results(props) {
     const [resultsA, setResultsA] = useState([]);
     const [resultsB, setResultsB] = useState([]);
     const [errorMsg, setErrorMsg] = useState('');
+
+    const scrollingTop = useRef(null);
+
+    //RESULTS SCROLL INTO VIEW
+    useEffect(() => {
+        if (resultsArray.length) {
+            const top = scrollingTop.current;
+            top.scrollIntoView({ behavior: "smooth" });
+        }
+    }, [resultsArray]);
 
     const showResults = () => {
 
@@ -38,11 +49,24 @@ function Results(props) {
     }
 
     return (
-        <div className='Results'>
-            <button onClick={() => showResults()}>Show results</button>
-            <p className='ErrorMsg' >{errorMsg}</p>
-            <ResultsList resultsArray={resultsArray} resultsA={resultsA} resultsB={resultsB} />
-        </div>
+        <section className='ResultsSection' >
+
+            <div className='ButtonBox'>
+                <button onClick={() => showResults()}>Done  &#x2713;</button>
+                <p className='ErrorMsg' >{errorMsg}</p>
+            </div>
+
+            <container ref={scrollingTop} className='ContentBox'>
+                <img src={trophy} className='TrophyIcon BigIcon' />
+                <h2>3. See your top names</h2>
+                <p>See the best names suggestion for your relationship.</p>
+                {resultsArray.length == 0 && <p className='ErrorMsg' >To see results you must complete ALL comparisons.</p>}
+                <div className='Results'>
+                    <ResultsList resultsArray={resultsArray} resultsA={resultsA} resultsB={resultsB} />
+                </div>
+            </container>
+
+        </section>
     )
 }
 

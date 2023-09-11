@@ -7,7 +7,7 @@ import swordB from './img/sword_blue.png';
 // mid - index of the middle element
 // high - index of the last element
 
-function NamesComparerMS(props) {
+function NamesComparerMSsecond(props) {
 
   const [namesArray, setNamesArray] = useState([]);
   const [currentNames, setCurrentNames] = useState(['Start comparisons', '']);
@@ -25,7 +25,6 @@ function NamesComparerMS(props) {
 
   const buttonRef = useRef(null);
 
-
   useEffect(() => { finishingMove() }, [finnishingFlag]);
   useEffect(() => {
     //for the process of comparison
@@ -36,11 +35,10 @@ function NamesComparerMS(props) {
     else if (namesArray.length === 0) { return }
     //for the end of comparison
     else {
-      setCurrentNames(['Perfect, you did it! Continue with the second person.', '']);
+      setCurrentNames(['Perfect, you did it! Click "DONE" to see the results below.', '']);
 
       const finishBtn = buttonRef.current;
       finishBtn.className = 'InactiveBtn';
-      finishBtn.scrollIntoView({ behavior: "smooth"});
 
       props.setRanking(
         (r) => {
@@ -168,4 +166,4 @@ function NamesComparerMS(props) {
   );
 }
 
-export default NamesComparerMS;
+export default NamesComparerMSsecond;
