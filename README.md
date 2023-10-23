@@ -1,31 +1,27 @@
-# Getting Started with Create React App
+# Choose Together App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project aims at helping parentes to choose a name for their child.
+It is NOT a Baby Name Generator.
+It is a DECISION MAKING TOOL :)
 
-## Available Scripts
+## Story
 
-In the project directory, you can run:
+Imagine you and your partner have to find a name for your child, BUT... you have different preferences.
+You prefer name "Linda", and he/she preferes name "Marry". Still, you may consider some other names, like "Jess", "Emily", "Anna". 
+Your partner also has a list of 15 other names that she likes.
+So - there are many names, different opinions, and a child that needs to have a name.
 
-### `npm start`
+This app helps you to go through this decision making process in a pleasent and peaceful way.
+You just need to follow these steps:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### `1. Create Pool of Names`
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Together with your partner write down names, that you are taking in the consideration.
+For example, when I used this method together with my wife we've created a list of 30 names, where I had 12 name "candidates" and she had 18.
 
-### `npm test`
+### `2. Copmare Names In Pairs`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
