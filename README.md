@@ -4,12 +4,13 @@ This project aims at helping parents to choose a name for their child.
 
 It is NOT a baby name generator. It is a DECISION MAKING TOOl :)
 
-It consist of 3 simple steps:
-1. The parents create together pool of name "candidates".
-2. Each of the parents complete a series of name comparisons to determine their preference ranking.
-3. The rainkings are aggregated and parents receive name suggustion.
- 
-I've optimized the number of comparisons with implementation of merge-sort algorithm. It works dynamicly - so as the user proceeds with choices it computes the dynamic comparisons.
+It consists of 3 simple steps:
+
+1. The parents create together a pool of names "candidates".
+2. Each of the parents completes a series of name comparisons to determine their preference ranking.
+3. The rankings are aggregated and parents receive name suggestions.
+
+I've optimized the number of comparisons with the implementation of the merge-sort algorithm. It works dynamically - so as the user proceeds with choices, it computes the dynamic comparisons.
 
 ## Guidline
 
@@ -45,7 +46,7 @@ Now the app has created preference rankings based on your individual choices.
 The program compares these rankings and returns the best name suggestions for your couple.
 
 
-### How to interpret suggestions?
+### `How to interpret suggestions?`
 
 If, for example, "Jess" scored 3, it means: "the person who likes this name less ranked it at position 3". The second person may like the name "Jess" even more or at the same level.
 
@@ -54,13 +55,13 @@ So, in other words, one of you is probably less happy with the choice, but still
 
 ## Technicalites
 
-### Comparison Optimization
+### `Comparison Optimization`
 
 To minimize the number of name comparisons (and thus save users' time), I've implemented the MERGE SORT algorithm. It works dynamicly - so as the user proceeds with choices it computes the dynamic comparisons.
 
-### Genericity
+### `Genericity`
 
 This decsion-making method can be of course applied to other types of decisions you make in pair like: "holiday destination", "movie for tonight" etc.
 
-### 'Progress bar'
+### `Progress bar`
 https://www.npmjs.com/package/@ramonak/react-progress-bar#custom-class-names
