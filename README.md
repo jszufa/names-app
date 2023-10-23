@@ -4,7 +4,7 @@ This project aims at helping parentes to choose a name for their child.
 It is NOT a Baby Name Generator.
 It is a DECISION MAKING TOOL :)
 
-## Story
+## Overview
 
 Imagine you and your partner have to find a name for your child, BUT... you have different preferences.
 You prefer name "Linda", and he/she preferes name "Marry". Still, you may consider some other names, like "Jess", "Emily", "Anna". 
@@ -40,10 +40,11 @@ If for example "Jess" scored 3, it means: "person who likes this name less ranke
 So, in other words, one of you is probably less happy with the choice, but still, this may be the best deal for you as a pair. If you would choose a name that scored for example 30, it would probably make the "less-liking" person really dissatisfied, even if for the second person this name would be a first choice.
 
 
-### Deployment
+## Technicalites
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+### Comparison Optimization
 
-### `npm run build` fails to minify
+To minimize the number of name comparsions (and thus save user's time) I've implemented MERGE SORT algorithm. It is works dynamicly - so as the user proceeds with choices it computes the remaing comparisons.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+### 'Progress bar'
+https://www.npmjs.com/package/@ramonak/react-progress-bar#custom-class-names
