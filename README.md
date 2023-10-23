@@ -6,7 +6,14 @@ It is NOT a Baby Name Generator.
 
 It is a DECISION MAKING TOOL :)
 
-## Overview
+It consist of 3 simple steps:
+1. The parents create together pool of name "candidates".
+2. Each of the parents complete a series of name comparisons to determine their preference ranking.
+3. The rainkings are aggregated and parents receive name suggustion.
+ 
+I've optimized the number of comparisons with implementation of merge-sort algorithm. It works dynamicly - so as the user proceeds with choices it computes the dynamic comparisons.
+
+## Guidline
 
 Imagine you and your partner have to find a name for your child, BUT... you have different preferences.
 
