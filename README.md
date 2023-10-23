@@ -2,9 +2,7 @@
 
 This project aims at helping parents to choose a name for their child.
 
-It is NOT a Baby Name Generator.
-
-It is a DECISION MAKING TOOL :)
+It is NOT a baby name generator. It is a DECISION MAKING TOOl :)
 
 It consist of 3 simple steps:
 1. The parents create together pool of name "candidates".
@@ -59,6 +57,10 @@ So, in other words, one of you is probably less happy with the choice, but still
 ### Comparison Optimization
 
 To minimize the number of name comparisons (and thus save users' time), I've implemented the MERGE SORT algorithm. It works dynamicly - so as the user proceeds with choices it computes the dynamic comparisons.
+
+### Genericity
+
+This decsion-making method can be of course applied to other types of decisions you make in pair like: "holiday destination", "movie for tonight" etc.
 
 ### 'Progress bar'
 https://www.npmjs.com/package/@ramonak/react-progress-bar#custom-class-names
