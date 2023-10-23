@@ -12,6 +12,9 @@ It consists of 3 simple steps:
 
 I've optimized the number of comparisons with the implementation of the merge-sort algorithm. It works dynamically - so as the user proceeds with choices, it computes the dynamic comparisons.
 
+
+
+
 ## Usage
 
 Imagine you and your partner have to find a name for your child, BUT... you have different preferences.
@@ -51,6 +54,9 @@ The program compares these rankings and returns the best name suggestions for yo
 If, for example, "Jess" scored 3, it means: "the person who likes this name less ranked it at position 3". The second person may like the name "Jess" even more or at the same level.
 
 So, in other words, one of you is probably less happy with the choice, but still, this may be the best deal for you as a pair. If you choose a name that scored, for example, 30, it would probably make the "less-liking" person really dissatisfied, even if, for the second person, this name would be the first choice.
+
+
+
 
 
 ## Technicalites
