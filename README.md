@@ -16,46 +16,29 @@ You just need to follow these steps:
 
 ### `1. Create Pool of Names`
 
-Together with your partner write down names, that you are taking in the consideration.
+Together with your partner type down names, that you are taking in the consideration.
 For example, when I used this method together with my wife we've created a list of 30 names, where I had 12 name "candidates" and she had 18.
 
 ### `2. Copmare Names In Pairs`
 
+Now you will INDIVIDUALLY compare name "candidates" in pairs to determine your preference ranking.
+In psychological terms it is easier to compare just TWO candidates, and decide which one we prefer, than thinking about the entire set of candidates, and picking preference order.
+
+So each of you will have to decide: "Marry" or "Jess"? "Marry" or "Lind"? Which name I prefer to give to my child?
+This process may take some time, depending on how many names you have in your names pool.
+
+### `3. Results`
+
+Now the app has created preference rankings based on your individual choices.
+The program compares these ranking and returns best name suggestions for your couple.
 
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### How to intepret suggestion?
 
-### `npm run eject`
+If for example "Jess" scored 3, it means: "person who likes this name less ranked it at postion 3". The second person may like the name "Jess" even more or at the same level.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+So, in other words, one of you is probably less happy with the choice, but still, this may be the best deal for you as a pair. If you would choose a name that scored for example 30, it would probably make the "less-liking" person really dissatisfied, even if for the second person this name would be a first choice.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
 
 ### Deployment
 
