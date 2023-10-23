@@ -12,7 +12,7 @@ It consists of 3 simple steps:
 
 I've optimized the number of comparisons with the implementation of the merge-sort algorithm. It works dynamically - so as the user proceeds with choices, it computes the dynamic comparisons.
 
-## Guidline
+## Usage
 
 Imagine you and your partner have to find a name for your child, BUT... you have different preferences.
 
